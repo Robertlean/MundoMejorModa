@@ -86,6 +86,9 @@ label{
     margin: 1em 0 0;
     float: right;
 }
+.menu-inicio{
+	margin-left:0
+}
 .social-nav li {
     display: inline-block;
     margin: 0 6px;
@@ -222,6 +225,9 @@ li.share {
 /*--social-icons--*/
 .logo_agile {
     text-align: center;
+}
+.desplegable{
+	background-color: #30e878;
 }
 .logo_agile span {
     background: #000;
@@ -521,8 +527,8 @@ letter-spacing: 2px;
     width: 21%;
 }
 .box_1 {
-    background: #30e878;
-    padding: 15px 22px;
+	display: flex;
+	justify-content: flex-end;
     text-align: center;
 }
 .box_1 h3 {
@@ -1458,11 +1464,13 @@ position:relative;
 button.w3view-cart {
     outline: none;
     border: none;
-    background: #17c3a2;
+    background: transparent;
+	border: 1px solid #30e878;
+	border-radius:.3em;
     width: 48px;
     height: 43px;
     font-size: 24px;
-    color: #000;
+    color: #30e878;
 }
 /*-- //cart --*/
 /*-- effect --*/
@@ -3809,7 +3817,7 @@ p.w3ls_para {
 		font-size: 13px;
 	}
 	.box_1 {
-		padding: 7px 4px;
+		padding: 7px 0;
 	}
 	.new-gd-left,.new-gd-middle {
 		float: left;
@@ -4080,7 +4088,6 @@ p.w3ls_para {
 	
 	.logo_agile {
 		text-align: left;
-		margin-top: 1em;
 		padding: 0;
 		float: left;
 	}
@@ -4316,6 +4323,9 @@ p.w3ls_para {
 	.header-bot_inner_wthreeinfo_header_mid {
 		margin: 0 auto;
 		width: 96%;
+		display: flex;
+    	justify-content: center;
+    	align-items: flex-start;
 	}
 	ul.dropdown-menu.multi-column.columns-3 {
 		    border-top: 1px solid rgba(255, 255, 255, 0.09);
@@ -5059,7 +5069,6 @@ p.w3ls_para {
 		width: 100%;
 	}
 	.logo_agile {
-		margin-top: 1em;
 		padding: 0;
 		text-align: center;
 		float: none;
