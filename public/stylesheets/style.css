@@ -86,9 +86,7 @@ label{
     margin: 1em 0 0;
     float: right;
 }
-.menu-inicio{
-	margin-left:0
-}
+
 .social-nav li {
     display: inline-block;
     margin: 0 6px;
@@ -3551,8 +3549,8 @@ p.w3ls_para {
 
 @media (max-width: 1080px){
 	.header-bot_inner_wthreeinfo_header_mid {
-		margin: 0 auto;
-		width: 95%;
+		margin: 0 0;
+		width: auto;
 	}
 	.box_1 h3 {
 		font-size: 15px;
@@ -3811,6 +3809,11 @@ p.w3ls_para {
 	.header-left,.header-right {
 		float: left;
 		width: 31%;
+	}
+	.menu-inicio{
+		margin-left: 0;
+		margin-right: 0;
+		
 	}
 	.header-middle {
 		margin-top:0px;
@@ -4150,10 +4153,11 @@ p.w3ls_para {
 		width: 9%;
 	}
 	.header-middle form input[type="search"] {
-		width: 88%;
+		width: 75%;
+		height: 2.5em;
 	}
 	.header-bot {
-		padding: 15px 0 30px 0;
+		padding:0;
 	}
 	.carousel-caption {
 		min-height: 400px!important;
@@ -4218,6 +4222,9 @@ p.w3ls_para {
 	.pignose-layerslider .slide-visual .script-wrap {
 		right: 300px;
 	}
+	.cart .top_nav_right{
+		display: none
+	}
 	.carousel-caption h2, .carousel-caption h3 {
 		font-size: 2.3em;
 		letter-spacing: 9px;
@@ -4239,6 +4246,11 @@ p.w3ls_para {
 	.info-content a {
 		padding: 4px 7px;
 		font-size: 14px;
+	}
+	.buscador{
+		display: flex;
+    	justify-content: center;
+    	align-items: center;
 	}
 	.hvr-outline-out:before {
 		border: #30e878 solid 2px;
@@ -4262,11 +4274,21 @@ p.w3ls_para {
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 8px 0px #30e878;
 		width: 9%;
+		height: 2em;
+		margin: .5em 0;
+		background-position-y: center
 	}
 }
 
 /* MEdia query 768px Tablet */
 @media (max-width: 768px){
+	.box_1{
+		padding:0
+	}
+	.header-bot_inner_wthreeinfo_header_mid {
+		display:flex;
+		flex-direction:column-reverse;
+	}
 	.social-nav.model-3d-0.footer-social.w3_agile_social.two  {
 		margin-left: 25%;
 		 width: 80%;
@@ -4322,6 +4344,17 @@ p.w3ls_para {
 		min-width: 411px;
 		padding: 20px 20px;
 	}	
+	.menu-inicio{
+		padding:0
+	}
+	.logo_agile{
+		display: flex;
+		justify-content: center;
+		margin: 1em
+	}
+	.top_nav_right {
+		display:none
+	}
 }
 
 /*Media query 767px hasta tablet  */
@@ -4340,13 +4373,23 @@ p.w3ls_para {
 	    margin-left:0px;
 		border-radius: .3em;
 	}
+	.carrito{
+		display:none
+	}
+	.clearfix{
+		display:none
+	}
+	.menu-inicio{
+		padding-left: 15px;
+	}
 	.header-left img {
 		width: 100%;
 	}
 	.top_nav_right {
 		float: right;
-		width: 21%;
+		width: 0em;
 		margin-top: 0em;
+		display:block;
 	}
 	.header-bot {
 		padding: 17px 0;
@@ -4369,8 +4412,9 @@ p.w3ls_para {
 		margin: 0 auto;
 		width: 96%;
 		display: flex;
-    	justify-content: center;
+    	justify-content: space-between;
     	align-items: flex-start;
+		flex-direction:row
 	}
 	ul.dropdown-menu.multi-column.columns-3 {
 		    border-top: 1px solid rgba(255, 255, 255, 0.09);
@@ -4467,10 +4511,14 @@ p.w3ls_para {
 	}
 	.header-middle input[type="search"] {
 		padding: 8px 10px;
-	}	
+	}
+	.menu-inicio{
+		margin-left: 0;
+		width: 42vh;
+	}
 	.top_nav_right {
 		float: right;
-		width: 23%;
+		width: 42vh;
 	}
 	.pignose-layerslider .slide-visual .script-wrap {
 		left:350px;
@@ -4629,6 +4677,8 @@ p.w3ls_para {
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 8px 0px #30e878;
 		width: 10%;
+		background-position-y: center;
+		background-position-x: center;
 	}
 	.wthree_banner_bottom_grid_three_left1 {
 		width: 100%;
@@ -4773,7 +4823,7 @@ p.w3ls_para {
 }
 @media (max-width: 600px){
 	.top_nav_right {
-		width: 30%;
+		width: 34vh;
 	}
 	.navbar-default {
 		width: 69%;
@@ -4901,6 +4951,7 @@ p.w3ls_para {
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 8px 0px #30e878;
 		width: 11%;
+		background-position-y: center
 	}
 	.sign-gd, .sign-gd-two {
 		float: left;
@@ -4942,6 +4993,10 @@ p.w3ls_para {
 }
 @media (max-width: 480px){
 	.timetable_sub th, .timetable_sub td {
+	}
+	.menu-inicio{
+		margin-left:0;
+		width: 30vh
 	}
 	td.invert-image a img {
 		width: 50%;
@@ -5010,7 +5065,7 @@ p.w3ls_para {
 		width: 100%;
 	}
 	.top_nav_right {
-		width: 31%;
+		width: 31vh;
 	}
 	.wed-brandtwo {
 		top: 46%;
@@ -5140,7 +5195,7 @@ p.w3ls_para {
 	}
 	.header-middle form input[type="search"] {
 		width: 83%;
-		height: 60%;
+		height: 2em;
 		border-top-left-radius: .5em;
 		border-bottom-left-radius: .5em;
 	}
@@ -5622,7 +5677,7 @@ p.w3ls_para {
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 0px 0px #30e878;
 		width: 15%;
-		height: 1.56em;
+		height: 1.78em;
     	background-position-y: center;
     	background-position-x: center;
 	}

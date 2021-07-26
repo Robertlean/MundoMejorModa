@@ -1,7 +1,7 @@
 <div class="header" id="home">
     <div class="container">
         <div class="col-md-4 header-middle">
-            <form action="/search" method="post">
+            <form action="/search" method="post" style="display: flex; justify-content: center; align-items: center;">
                 <input type="search" name="search" placeholder="Buscar aquí..." required="">
                 <input type="submit" value=" ">
                 <div class="clearfix"></div>
@@ -110,7 +110,27 @@
                         </ul>
                     </li>
                     <li class=" menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+                    <li class="menu__item dropdown">
+                        <div class="login">
+                            <ul class="menu_list">
+                                <li class="menu_item"><a href="/login">Login</a></li>
+                                <li class="menu_item"><a href="/register">Register</a></li>
+                            </ul>
+                            <div class="top_nav_right">
+                                <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+                                    <form action="#" method="post" class="last">
+                                        <input type="hidden" name="cmd" value="_cart">
+                                        <input type="hidden" name="display" value="1">
+                                        <button class="w3view-cart" type="submit" name="submit" value=""><i
+                                                class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                                    </form>
+                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
+                
             </div>
         </div>
         <div class="col-md-4 logo_agile">
@@ -132,6 +152,7 @@
         
         <div class="clearfix"></div>
     </div>
+    
 </div>
 
 <!-- //header-bot -->
