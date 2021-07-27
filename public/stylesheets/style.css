@@ -4364,7 +4364,7 @@ p.w3ls_para {
 /*Media query 767px hasta tablet  */
 @media (max-width: 767px){
 	.desplegable{
-		display:block
+		display:none
 	}
 	.navbar-toggle {
 		position: relative;
