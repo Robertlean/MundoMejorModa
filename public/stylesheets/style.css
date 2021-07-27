@@ -225,7 +225,7 @@ li.share {
     text-align: center;
 }
 .desplegable{
-	background-color: #30e878;
+	background-color: #000;
 }
 .logo_agile span {
     background: #000;
@@ -4223,7 +4223,7 @@ p.w3ls_para {
 		right: 300px;
 	}
 	.cart .top_nav_right{
-		display: none
+		display: block
 	}
 	.carousel-caption h2, .carousel-caption h3 {
 		font-size: 2.3em;
@@ -4353,12 +4353,19 @@ p.w3ls_para {
 		margin: 1em
 	}
 	.top_nav_right {
-		display:none
+		display:flex
+	}
+	.desplegable{
+		display:flex;
+		justify-content:space-between
 	}
 }
 
 /*Media query 767px hasta tablet  */
 @media (max-width: 767px){
+	.desplegable{
+		display:block
+	}
 	.navbar-toggle {
 		position: relative;
 		float: left;
