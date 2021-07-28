@@ -76,11 +76,12 @@ label{
 }
 .header-bot_inner_wthreeinfo_header_mid {
     margin: 0 auto;
-    width: 90%;
 	display:flex;
 	flex-direction:column-reverse;
 	align-items: center
 }
+
+
 /*-- //header --*/
 .social-nav {
     padding: 0;
@@ -229,9 +230,12 @@ li.share {
 /*--social-icons--*/
 .logo_agile {
     text-align: center;
+	margin: 1em
 }
 .desplegable{
 	background-color: #000;
+	display: flex;
+	justify-content: space-between
 }
 .logo_agile span {
     background: #000;
@@ -540,7 +544,7 @@ letter-spacing: 2px;
 	display:none
 }
 .cart{
-	margin-top:-9px
+	margin-top:4px
 }
 .box_1 h3 {
     color: #fff;
@@ -1508,7 +1512,8 @@ button.w3view-cart:hover{
 	color: #30e878;
 }
 .collapse{
-	display:block
+	display:flex;
+	justify-content: space-between;
 }
 /*-- //cart --*/
 /*-- effect --*/
@@ -3764,10 +3769,16 @@ p.w3ls_para {
 	.add-review input[type="text"], .add-review input[type="email"], .add-review textarea {
 		width: 48.85%;
 	}
+	.cart{
+		margin-top:-2px
+	}
 }
 @media (max-width: 1024px){
 	.header ul li,.section_room select,.header-middle input[type="search"] {
 		font-size: 14px;
+	}
+	.cart{
+		margin-top:-2px
 	}
 	.header-right ul {
 		margin-top: 15px;
@@ -3838,6 +3849,9 @@ p.w3ls_para {
 		margin-left: 0;
 		margin-right: 0;
 		
+	}
+	.cart{
+		margin-top:-13px
 	}
 	.header-middle {
 		margin-top:0px;
@@ -4174,7 +4188,10 @@ p.w3ls_para {
 	}
 	.header-middle form input[type="submit"] {
 	    background: url(../images/search.png) no-repeat 19px 0px #30e878;
-		width: 9%;
+		width: 6%;
+		height: 2em;
+    	background-position-x: center;
+    	background-position-y: center;
 	}
 	.header-middle form input[type="search"] {
 		width: 75%;
@@ -4234,6 +4251,9 @@ p.w3ls_para {
 		min-width: 440px;
 		padding: 20px 20px;
 	}
+	.cart{
+		margin-top:-12px
+	}
 }
 
 
@@ -4276,6 +4296,9 @@ p.w3ls_para {
     	justify-content: center;
     	align-items: center;
 	}
+	.cart{
+		margin-top:-12px
+	}
 	.hvr-outline-out:before {
 		border: #30e878 solid 2px;
 	}
@@ -4308,6 +4331,9 @@ p.w3ls_para {
 @media (max-width: 768px){
 	.box_1{
 		padding:0
+	}
+	.cart{
+		margin-top:-8px
 	}
 	.header-bot_inner_wthreeinfo_header_mid {
 		display:flex;
@@ -5735,7 +5761,7 @@ p.w3ls_para {
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 0px 0px #30e878;
 		width: 15%;
-		height: 1.78em;
+		height: 1.75em;
     	background-position-y: center;
     	background-position-x: center;
 	}
