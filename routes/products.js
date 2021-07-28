@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { detail } =require('../controllers/productController')
+var { detail } =require('../controllers/productController');
 
 
 /* GET home page. */
