@@ -77,6 +77,9 @@ label{
 .header-bot_inner_wthreeinfo_header_mid {
     margin: 0 auto;
     width: 90%;
+	display:flex;
+	flex-direction:column-reverse;
+	align-items: center
 }
 /*-- //header --*/
 .social-nav {
@@ -86,7 +89,10 @@ label{
     margin: 1em 0 0;
     float: right;
 }
-
+.menu-inicio{
+	width:100%;
+	padding:0
+}
 .social-nav li {
     display: inline-block;
     margin: 0 6px;
@@ -255,14 +261,11 @@ i.fa.fa-shopping-bag.top_logo_agile_bag {
 .header-left img {
     width: 73%;
 }
-.header-bot {
-    padding: 25px 0;
-}
 .header-middle form input[type="search"] {
     outline: none;
     border: none;
     width: 87%;
-    padding: 12px 10px;
+    padding: 11px 10px;
     color: #848484;
     font-size: .8em;
     border: 1px solid #ddd;
@@ -272,19 +275,25 @@ i.fa.fa-shopping-bag.top_logo_agile_bag {
 }
 .header-middle form input[type="submit"]{
     background: url(../images/search.png) no-repeat 4px 0px #30e878;
-    width: 11%;
-    height: 50px;
+    width: 8%;
+    height: 42px;
     border: none;
     padding: 0;
     border: none;
     outline: none;
 	border-top-right-radius: .5em;
 	border-bottom-right-radius: .5em;
-	background-position-y: center
+	background-position-y: center;
+	background-position-x: center;
+	margin: .6em 0;
 }
 .search {
     float: left;
     width: 57%;
+}
+.contenedor{
+	display:flex;
+	justify-content:center
 }
 .section_room{
     float: left;
@@ -296,6 +305,7 @@ i.fa.fa-shopping-bag.top_logo_agile_bag {
 }
 .header-middle {
 	padding:0;
+	width: 80%
 }
 .header-right ul {
     margin-top: 20px;
@@ -525,6 +535,12 @@ letter-spacing: 2px;
 	display: flex;
 	justify-content: flex-end;
     text-align: center;
+}
+.carrito{
+	display:none
+}
+.cart{
+	margin-top:-9px
 }
 .box_1 h3 {
     color: #fff;
@@ -1479,12 +1495,20 @@ button.w3view-cart {
     outline: none;
     border: none;
     background: transparent;
-	border: 1px solid #30e878;
+	border: 1px solid #fff;
 	border-radius:.3em;
     width: 48px;
     height: 43px;
     font-size: 24px;
-    color: #30e878;
+    color: #fff;
+	margin-top:9px
+}
+button.w3view-cart:hover{
+	border: 2px solid #30e878;
+	color: #30e878;
+}
+.collapse{
+	display:block
 }
 /*-- //cart --*/
 /*-- effect --*/
@@ -3682,7 +3706,7 @@ p.w3ls_para {
 	}
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 4px 0px #30e878;
-		width: 17%;
+		width: 8%;
 	}
 	.w3layouts_mail_grid_left {
 		width: 50%;
@@ -4365,6 +4389,29 @@ p.w3ls_para {
 @media (max-width: 767px){
 	.desplegable{
 		display:none
+	}	
+	.box_1 {
+		display: flex;
+		justify-content: flex-end;
+		text-align: center;
+	}
+	.cart{
+		display:none
+	}
+	.navegador{
+		width:16em
+	}
+	button.w3view-cart {
+		outline: none;
+		border: none;
+		background: transparent;
+		border: 1px solid #30e878;
+		border-radius:.3em;
+		width: 48px;
+		height: 43px;
+		font-size: 24px;
+		color: #30e878;
+		margin-top:9px
 	}
 	.navbar-toggle {
 		position: relative;
@@ -4380,9 +4427,7 @@ p.w3ls_para {
 	    margin-left:0px;
 		border-radius: .3em;
 	}
-	.carrito{
-		display:none
-	}
+	
 	.clearfix{
 		display:none
 	}
@@ -5320,6 +5365,9 @@ p.w3ls_para {
 		float: left;
 		width: 100%;
 	}
+	.navegador{
+		width:10em
+	}
 	.carousel-caption {
 		min-height: 289px!important;
 		padding-top: 4em;
@@ -5671,6 +5719,9 @@ p.w3ls_para {
 
 /* Media query 320px comienzo mobile */
 @media (max-width: 320px){
+	.navegador{
+		width: 8.2em;
+	}
 	.header ul li {
 		display: inline-block;
 		width: 100%;
