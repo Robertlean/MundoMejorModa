@@ -4446,9 +4446,12 @@ p.w3ls_para {
 	.cart{
 		display:none
 	}
-	.navegador{
-		width:16em
+
+	.logo_agile{
+		position: relative;
+    	left: -7.2em;
 	}
+	
 	button.w3view-cart {
 		outline: none;
 		border: none;
@@ -4481,6 +4484,9 @@ p.w3ls_para {
 	}
 	.menu-inicio{
 		padding-left: 15px;
+	}
+	.multi-gd-img1 {
+		display: none
 	}
 	.header-left img {
 		width: 100%;
@@ -4517,9 +4523,12 @@ p.w3ls_para {
 		flex-direction:row
 	}
 	ul.dropdown-menu.multi-column.columns-3 {
-		    border-top: 1px solid rgba(255, 255, 255, 0.09);
-		border-bottom: 1px solid #fff;
+		    
+			
 		    margin-top: 10px;
+	}
+	.multi-gd-text {
+		display: none
 	}
 	.navbar-default {
 		width: 77%;
@@ -4599,7 +4608,10 @@ p.w3ls_para {
 	.social-nav.model-3d-0.footer-social.w3_agile_social.two  {
 		 width: 80%;
 		 }
-		 
+		 .menu-inicio{
+			margin-left: 0;
+			width: 33vh;
+		}
 }
 
 /* Media query 667px */
@@ -4792,6 +4804,10 @@ p.w3ls_para {
 		top: 49%;
 		left: 28%;
 		font-size: 1.4em;
+	}
+	.logo_agile{
+		position: relative;
+    	left: 0;
 	}
 	.product-men {
 		float: left;
@@ -5051,7 +5067,8 @@ p.w3ls_para {
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 8px 0px #30e878;
 		width: 11%;
-		background-position-y: center
+		background-position-y: center;
+		background-position-x: center
 	}
 	.sign-gd, .sign-gd-two {
 		float: left;
