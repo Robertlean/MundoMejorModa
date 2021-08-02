@@ -778,12 +778,23 @@ figure.effect-roxy h3 {
     text-transform: uppercase;
     letter-spacing: 5px;
 }
-figure.effect-roxy p {
+figure.effect-roxy h5{
+	padding: 1.5em 0 .5em;
+	color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+figure.effect-roxy p,figure.effect-roxy h5 {
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
 	-webkit-transform: translate3d(-10px,0,0);
 	transform: translate3d(-10px,0,0);
+}
+.grid-productos{
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	gap:.2em;
 }
 
 figure.effect-roxy:hover img,.agileinfo_banner_bottom_grid_three_left:hover img{
@@ -794,7 +805,7 @@ figure.effect-roxy:hover img,.agileinfo_banner_bottom_grid_three_left:hover img{
 
 figure.effect-roxy:hover figcaption::before,
 figure.effect-roxy:hover p,.agileinfo_banner_bottom_grid_three_left:hover figcaption::before,
-.agileinfo_banner_bottom_grid_three_left:hover p{
+.agileinfo_banner_bottom_grid_three_left:hover p, figure.effect-roxy:hover h5{
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
