@@ -28,6 +28,11 @@ input[type="button"],input[type="submit"]{
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
 }
+.button-products{
+	background-color: transparent;
+    border-color: transparent;
+    color: white;
+}
 
 h1,h2,h3,h4,h5,h6{
 	margin:0;
@@ -3572,7 +3577,9 @@ p.w3ls_para {
 	}
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 4px 0px #30e878;
-		width: 15%;
+		width: 7%;
+		background-position-x: center;
+		background-position-y: center;
 	}
 	.header-middle form input[type="search"] {
 		width: 83%;
