@@ -76,11 +76,12 @@ label{
 }
 .header-bot_inner_wthreeinfo_header_mid {
     margin: 0 auto;
-    width: 90%;
 	display:flex;
 	flex-direction:column-reverse;
 	align-items: center
 }
+
+
 /*-- //header --*/
 .social-nav {
     padding: 0;
@@ -229,9 +230,12 @@ li.share {
 /*--social-icons--*/
 .logo_agile {
     text-align: center;
+	margin: 1em
 }
 .desplegable{
 	background-color: #000;
+	display: flex;
+	justify-content: space-between
 }
 .logo_agile span {
     background: #000;
@@ -540,7 +544,7 @@ letter-spacing: 2px;
 	display:none
 }
 .cart{
-	margin-top:-9px
+	margin-top:4px
 }
 .box_1 h3 {
     color: #fff;
@@ -774,12 +778,23 @@ figure.effect-roxy h3 {
     text-transform: uppercase;
     letter-spacing: 5px;
 }
-figure.effect-roxy p {
+figure.effect-roxy h5{
+	padding: 1.5em 0 .5em;
+	color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+figure.effect-roxy p,figure.effect-roxy h5 {
 	opacity: 0;
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
 	-webkit-transform: translate3d(-10px,0,0);
 	transform: translate3d(-10px,0,0);
+}
+.grid-productos{
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	gap:.2em;
 }
 
 figure.effect-roxy:hover img,.agileinfo_banner_bottom_grid_three_left:hover img{
@@ -790,7 +805,7 @@ figure.effect-roxy:hover img,.agileinfo_banner_bottom_grid_three_left:hover img{
 
 figure.effect-roxy:hover figcaption::before,
 figure.effect-roxy:hover p,.agileinfo_banner_bottom_grid_three_left:hover figcaption::before,
-.agileinfo_banner_bottom_grid_three_left:hover p{
+.agileinfo_banner_bottom_grid_three_left:hover p, figure.effect-roxy:hover h5{
 	opacity: 1;
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
@@ -1519,7 +1534,8 @@ button.w3view-cart:hover{
 	color: #30e878;
 }
 .collapse{
-	display:block
+	display:flex;
+	justify-content: space-between;
 }
 /*-- //cart --*/
 /*-- effect --*/
@@ -3783,10 +3799,16 @@ p.w3ls_para {
 	.add-review input[type="text"], .add-review input[type="email"], .add-review textarea {
 		width: 48.85%;
 	}
+	.cart{
+		margin-top:-2px
+	}
 }
 @media (max-width: 1024px){
 	.header ul li,.section_room select,.header-middle input[type="search"] {
 		font-size: 14px;
+	}
+	.cart{
+		margin-top:-2px
 	}
 	.header-right ul {
 		margin-top: 15px;
@@ -3857,6 +3879,9 @@ p.w3ls_para {
 		margin-left: 0;
 		margin-right: 0;
 		
+	}
+	.cart{
+		margin-top:-13px
 	}
 	.header-middle {
 		margin-top:0px;
@@ -4198,7 +4223,10 @@ p.w3ls_para {
 	}
 	.header-middle form input[type="submit"] {
 	    background: url(../images/search.png) no-repeat 19px 0px #30e878;
-		width: 9%;
+		width: 6%;
+		height: 2em;
+    	background-position-x: center;
+    	background-position-y: center;
 	}
 	.header-middle form input[type="search"] {
 		width: 75%;
@@ -4258,6 +4286,9 @@ p.w3ls_para {
 		min-width: 440px;
 		padding: 20px 20px;
 	}
+	.cart{
+		margin-top:-12px
+	}
 }
 
 
@@ -4299,6 +4330,9 @@ p.w3ls_para {
     	justify-content: center;
     	align-items: center;
 	}
+	.cart{
+		margin-top:-12px
+	}
 	.hvr-outline-out:before {
 		border: #30e878 solid 2px;
 	}
@@ -4334,6 +4368,9 @@ p.w3ls_para {
 @media (max-width: 768px){
 	.box_1{
 		padding:0
+	}
+	.cart{
+		margin-top:-8px
 	}
 	.header-bot_inner_wthreeinfo_header_mid {
 		display:flex;
@@ -4423,9 +4460,12 @@ p.w3ls_para {
 	.cart{
 		display:none
 	}
-	.navegador{
-		width:16em
+
+	.logo_agile{
+		position: relative;
+    	left: -7.2em;
 	}
+	
 	button.w3view-cart {
 		outline: none;
 		border: none;
@@ -4458,6 +4498,9 @@ p.w3ls_para {
 	}
 	.menu-inicio{
 		padding-left: 15px;
+	}
+	.multi-gd-img1 {
+		display: none
 	}
 	.header-left img {
 		width: 100%;
@@ -4494,9 +4537,12 @@ p.w3ls_para {
 		flex-direction:row
 	}
 	ul.dropdown-menu.multi-column.columns-3 {
-		    border-top: 1px solid rgba(255, 255, 255, 0.09);
-		border-bottom: 1px solid #fff;
+		    
+			
 		    margin-top: 10px;
+	}
+	.multi-gd-text {
+		display: none
 	}
 	.navbar-default {
 		width: 77%;
@@ -4576,7 +4622,10 @@ p.w3ls_para {
 	.social-nav.model-3d-0.footer-social.w3_agile_social.two  {
 		 width: 80%;
 		 }
-		 
+		 .menu-inicio{
+			margin-left: 0;
+			width: 33vh;
+		}
 }
 
 /* Media query 667px */
@@ -4769,6 +4818,10 @@ p.w3ls_para {
 		top: 49%;
 		left: 28%;
 		font-size: 1.4em;
+	}
+	.logo_agile{
+		position: relative;
+    	left: 0;
 	}
 	.product-men {
 		float: left;
@@ -5028,7 +5081,8 @@ p.w3ls_para {
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 8px 0px #30e878;
 		width: 11%;
-		background-position-y: center
+		background-position-y: center;
+		background-position-x: center
 	}
 	.sign-gd, .sign-gd-two {
 		float: left;
@@ -5761,7 +5815,7 @@ p.w3ls_para {
 	.header-middle form input[type="submit"] {
 		background: url(../images/search.png) no-repeat 0px 0px #30e878;
 		width: 15%;
-		height: 1.78em;
+		height: 1.75em;
     	background-position-y: center;
     	background-position-x: center;
 	}
