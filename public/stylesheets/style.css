@@ -1032,6 +1032,9 @@ color: #30e878;
     resize: none;
 } 
 /*-- input-effect --*/
+.color-quality{
+	margin-top: 20px;
+}
 .styled-input input:focus ~ label, .styled-input input:valid ~ label,.styled-input textarea:focus ~ label ,.styled-input textarea:valid ~ label{
     font-size: .9em;
     color: #30e878;
