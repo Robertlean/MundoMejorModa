@@ -540,6 +540,16 @@ letter-spacing: 2px;
     float: right;
     width: 21%;
 }
+.ver-mas{
+	display: block;
+	text-align: end;   
+    margin:1em
+}
+.ver-mas a{
+	border: #30e878 solid 4px;
+    background-color: #30e878;
+    color: white;
+}
 .box_1 {
 	display: flex;
 	justify-content: flex-end;
@@ -784,7 +794,7 @@ figure.effect-roxy h3 {
     letter-spacing: 5px;
 }
 figure.effect-roxy h5{
-	padding: 1.5em 0 .5em;
+	padding: 0;
 	color: #fff;
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -1205,6 +1215,7 @@ button.close.top_wthree_agile {
 }
 .bb-middle-agileits-w3layouts.forth.grid {
     margin-top: 0.95em;
+	margin-bottom: 1em;
 }
 
 /*-- schedule-bottom --*/
@@ -1832,7 +1843,7 @@ a.single-item{
 /*-- navigation --*/
 ul.multi-column-dropdown li {
     list-style-type: none;
-    line-height: 2.5em;
+    line-height: 2.7em;
 }
 ul.multi-column-dropdown li a {
     text-decoration:none;
@@ -2650,6 +2661,9 @@ h2.typoh2{
 @media (max-width: 320px){
 	.grid_4 {
 		margin-top: 18px;
+	}
+	.ver-mas{
+		margin:0
 	}
 	h3.title {
 		font-size: 1.6em;
