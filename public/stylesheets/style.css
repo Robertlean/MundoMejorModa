@@ -3108,9 +3108,9 @@ ul.dropdown-menu6 li a {
 }
 
 .css-treeview a {
-  padding: 7px 0 0 31px;
+  padding: 0px 0 30px 0px;
   margin: 2px;
-  font-size: 14px;
+  font-size: 20px;
   letter-spacing: 1px;
 }
 .css-treeview ul,
@@ -3215,7 +3215,7 @@ ul.dropdown-menu6 li a {
   text-align: center;
   background: #f7f7f7;
   padding: 17px 0;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 700;
   border-bottom: 1px solid #d2d2d2;
   letter-spacing: 1px;
