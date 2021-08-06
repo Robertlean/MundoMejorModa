@@ -78,7 +78,7 @@
 							<option value="m">M</option>
 							<option value="l">L</option>
 							<option value="xl">XL</option>
-							<option value="xxl">xXL</option>
+							<option value="xxl">XXL</option>
 						</select>
 					</div>
 				</div>
@@ -86,14 +86,15 @@
 					<div class="color-quality-right">
 					
 						<div class="interes">
+							<h5>Color:</h5>
 							<select >
-								<option select hidden>Color</option>
+								<option value="blanco" class="blanco" selected ></option>
 								<option value="verde" class="verde"></option>
 								<option value="amarillo" class="amarillo"></option>
 								<option value="rojo" class="rojo"></option>
 								<option value="azul" class="azul"></option>
 								<option value="negro" class="negro"></option>
-								<option value="blanco" class="blanco"></option>
+							
 							</select>
 						
 						</div>
@@ -174,24 +175,51 @@
 								<span class="item_price">$140.99</span>
 								<del>$189.71</del>
 							</div>
-							<div
-								class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-								<form action="#" method="post">
-									<fieldset>
-										<input type="hidden" name="cmd" value="_cart">
-										<input type="hidden" name="add" value="1">
-										<input type="hidden" name="business" value=" ">
-										<input type="hidden" name="item_name" value="Sleeveless Solid Blue Top">
-										<input type="hidden" name="amount" value="30.99">
-										<input type="hidden" name="discount_amount" value="1.00">
-										<input type="hidden" name="currency_code" value="USD">
-										<input type="hidden" name="return" value=" ">
-										<input type="hidden" name="cancel_return" value=" ">
-										<button type="submit" name="submit" class="button-products" ><b>+</b><i class="fas fa-shopping-cart"></i></button>
-										<button type="submit" name="submit" class="button-products" >Comprar</button>
-									</fieldset>
-								</form>
-							</div>
+							
+							<div class="grid-productos">
+								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+									<form action="/buy" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name"
+												value="Formal Blue Shirt" />
+											<input type="hidden" name="amount" value="30.99" />
+											<input type="hidden" name="discount_amount"
+												value="1.00" />
+											<input type="hidden" name="currency_code"
+												value="PesoCl" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											
+											<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
+										</fieldset>
+									</form>
+								</div>
+
+								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+									<form action="/cart" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name"
+												value="Formal Blue Shirt" />
+											<input type="hidden" name="amount" value="30.99" />
+											<input type="hidden" name="discount_amount"
+												value="1.00" />
+											<input type="hidden" name="currency_code"
+												value="PesoCl" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											<input type="submit" name="submit"
+												value="Comprar" class="button" />
+											
+										</fieldset>
+									</form>
+								</div>
+							</div>	
 
 						</div>
 					</div>
@@ -215,23 +243,50 @@
 								<span class="item_price">$120.99</span>
 								<del>$189.71</del>
 							</div>
-							<div
-								class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-								<form action="#" method="post">
-									<fieldset>
-										<input type="hidden" name="cmd" value="_cart">
-										<input type="hidden" name="add" value="1">
-										<input type="hidden" name="business" value=" ">
-										<input type="hidden" name="item_name" value="Black Basic Shorts">
-										<input type="hidden" name="amount" value="30.99">
-										<input type="hidden" name="discount_amount" value="1.00">
-										<input type="hidden" name="currency_code" value="USD">
-										<input type="hidden" name="return" value=" ">
-										<input type="hidden" name="cancel_return" value=" ">
-										<button type="submit" name="submit" class="button-products" ><b>+</b><i class="fas fa-shopping-cart"></i></button>
-										<button type="submit" name="submit" class="button-products" >Comprar</button>									</fieldset>
-								</form>
-							</div>
+							<div class="grid-productos">
+								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+									<form action="/buy" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name"
+												value="Formal Blue Shirt" />
+											<input type="hidden" name="amount" value="30.99" />
+											<input type="hidden" name="discount_amount"
+												value="1.00" />
+											<input type="hidden" name="currency_code"
+												value="PesoCl" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											
+											<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
+										</fieldset>
+									</form>
+								</div>
+
+								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+									<form action="/cart" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name"
+												value="Formal Blue Shirt" />
+											<input type="hidden" name="amount" value="30.99" />
+											<input type="hidden" name="discount_amount"
+												value="1.00" />
+											<input type="hidden" name="currency_code"
+												value="PesoCl" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											<input type="submit" name="submit"
+												value="Comprar" class="button" />
+											
+										</fieldset>
+									</form>
+								</div>
+							</div>	
 
 						</div>
 					</div>
@@ -255,23 +310,50 @@
 								<span class="item_price">$120.99</span>
 								<del>$199.71</del>
 							</div>
-							<div
-								class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-								<form action="#" method="post">
-									<fieldset>
-										<input type="hidden" name="cmd" value="_cart">
-										<input type="hidden" name="add" value="1">
-										<input type="hidden" name="business" value=" ">
-										<input type="hidden" name="item_name" value="Aero Canvas Loafers">
-										<input type="hidden" name="amount" value="30.99">
-										<input type="hidden" name="discount_amount" value="1.00">
-										<input type="hidden" name="currency_code" value="USD">
-										<input type="hidden" name="return" value=" ">
-										<input type="hidden" name="cancel_return" value=" ">
-										<button type="submit" name="submit" class="button-products" ><b>+</b><i class="fas fa-shopping-cart"></i></button>
-										<button type="submit" name="submit" class="button-products" >Comprar</button>									</fieldset>
-								</form>
-							</div>
+							<div class="grid-productos">
+								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+									<form action="/buy" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name"
+												value="Formal Blue Shirt" />
+											<input type="hidden" name="amount" value="30.99" />
+											<input type="hidden" name="discount_amount"
+												value="1.00" />
+											<input type="hidden" name="currency_code"
+												value="PesoCl" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											
+											<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
+										</fieldset>
+									</form>
+								</div>
+
+								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+									<form action="/cart" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name"
+												value="Formal Blue Shirt" />
+											<input type="hidden" name="amount" value="30.99" />
+											<input type="hidden" name="discount_amount"
+												value="1.00" />
+											<input type="hidden" name="currency_code"
+												value="PesoCl" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											<input type="submit" name="submit"
+												value="Comprar" class="button" />
+											
+										</fieldset>
+									</form>
+								</div>
+							</div>	
 
 						</div>
 					</div>
@@ -295,24 +377,50 @@
 								<span class="item_price">$100.99</span>
 								<del>$159.71</del>
 							</div>
-							<div
-								class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-								<form action="#" method="post">
-									<fieldset>
-										<input type="hidden" name="cmd" value="_cart">
-										<input type="hidden" name="add" value="1">
-										<input type="hidden" name="business" value=" ">
-										<input type="hidden" name="item_name" value="Ankle Length Socks">
-										<input type="hidden" name="amount" value="30.99">
-										<input type="hidden" name="discount_amount" value="1.00">
-										<input type="hidden" name="currency_code" value="USD">
-										<input type="hidden" name="return" value=" ">
-										<input type="hidden" name="cancel_return" value=" ">
-										<button type="submit" name="submit" class="button-products" ><b>+</b><i class="fas fa-shopping-cart"></i></button>
-										<button type="submit" name="submit" class="button-products" >Comprar</button>									</fieldset>
-								</form>
-							</div>
+							<div class="grid-productos">
+								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+									<form action="/buy" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name"
+												value="Formal Blue Shirt" />
+											<input type="hidden" name="amount" value="30.99" />
+											<input type="hidden" name="discount_amount"
+												value="1.00" />
+											<input type="hidden" name="currency_code"
+												value="PesoCl" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											
+											<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
+										</fieldset>
+									</form>
+								</div>
 
+								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+									<form action="/cart" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name"
+												value="Formal Blue Shirt" />
+											<input type="hidden" name="amount" value="30.99" />
+											<input type="hidden" name="discount_amount"
+												value="1.00" />
+											<input type="hidden" name="currency_code"
+												value="PesoCl" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											<input type="submit" name="submit"
+												value="Comprar" class="button" />
+											
+										</fieldset>
+									</form>
+								</div>
+							</div>	
 						</div>
 					</div>
 				</div>
