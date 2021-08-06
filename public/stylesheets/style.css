@@ -1231,7 +1231,8 @@ p.copy-right a:hover {
 }
 .modal-body.modal-body-sub_agile input[type="text"],
 .modal-body.modal-body-sub_agile input[type="email"],
-.modal-body.modal-body-sub_agile input[type="password"] {
+.modal-body.modal-body-sub_agile input[type="password"],
+.modal-body.modal-body-sub_agile input[type="tel"] {
   font-size: 14px;
   letter-spacing: 1px;
   color: #777;
@@ -5808,9 +5809,10 @@ p.w3ls_para {
     width: 100%;
   }
   .modal_body_right.modal_body_right1 {
-    padding: 0;
-    float: right;
-    width: 100%;
+    display: none
+  }
+  ul.social-nav{
+    display:none
   }
   .modal_body_right.modal_body_right1 img {
     width: 33%;
