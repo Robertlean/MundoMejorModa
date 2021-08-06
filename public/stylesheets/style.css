@@ -1617,12 +1617,8 @@ h3.wthree_text_info span {
   bottom: -17px !important;
 }
 #PPMiniCart {
-<<<<<<< HEAD
     left: 44% !important;
 	z-index:100
-=======
-  left: 44% !important;
->>>>>>> f069f35a88fc0f894eea419a22ef80ed4e3093f6
 }
 .minicart-showing #PPMiniCart form {
   overflow-x: hidden;
