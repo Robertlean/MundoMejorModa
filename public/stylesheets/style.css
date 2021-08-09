@@ -332,6 +332,24 @@ i.fa.fa-shopping-bag.top_logo_agile_bag {
 .section_room select option {
   line-height: 1.8em;
 }
+
+/* Cart */
+.button-cancel button {
+  border: none;
+  border-radius: 3px;
+  padding: 10px 10px 10px;
+  font-size: 14px;
+  outline: none;    
+  margin: 0 0 0 -4px;
+  letter-spacing: 1px;
+  background: #111;
+  color: #fff;
+}
+.button-cancel :hover{
+  transition: ease;
+  background-color: #ff1d1d
+}
+
 /* Icons */
 
 /* pop-up text */
@@ -893,6 +911,12 @@ figure.effect-roxy h5 {
   gap: 0.2em;
 }
 
+.grid-cart{
+  display: grid;
+  grid-template-columns: 7fr 4fr;
+  gap: 1em
+}
+
 figure.effect-roxy:hover img,
 .agileinfo_banner_bottom_grid_three_left:hover img {
   opacity: 0.7;
@@ -1244,6 +1268,21 @@ p.copy-right a:hover {
   -webkit-appearance: none;
   outline: none;
 }
+.modal-body.modal-body-sub_agile_login input[type="text"],
+.modal-body.modal-body-sub_agile_login input[type="email"],
+.modal-body.modal-body-sub_agile_login input[type="password"],
+.modal-body.modal-body-sub_agile_login input[type="tel"] {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #777;
+  padding: 0.5em 1em 0.5em 0;
+  border: 0;
+  width: 100%;
+  border-bottom: 1px solid #dcdcdc;
+  background: none;
+  -webkit-appearance: none;
+  outline: none;
+}
 h3.agileinfo_sign {
   font-size: 1.2em;
   font-weight: 700;
@@ -1258,7 +1297,7 @@ h3.agileinfo_sign span {
   font-weight: 300;
 }
 
-.modal-body.modal-body-sub_agile ::-webkit-input-placeholder {
+.modal-body.modal-body-sub_agile::-webkit-input-placeholder {
   color: #212121 !important;
 }
 .modal-body.modal-body-sub_agile input[type="submit"] {
@@ -1273,7 +1312,22 @@ h3.agileinfo_sign span {
   background: #111;
   color: #fff;
 }
+.modal-body.modal-body-sub_agile_login input[type="submit"] {
+  border: none;
+  padding: 10px 40px 10px;
+  font-size: 14px;
+  outline: none;
+  text-transform: uppercase;
+  margin: 0 0 0 -4px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: #111;
+  color: #fff;
+}
 .modal-body.modal-body-sub_agile input[type="submit"]:hover {
+  background: #30e878;
+}
+.modal-body.modal-body-sub_agile_login input[type="submit"]:hover {
   background: #30e878;
 }
 .modal_body_right.modal_body_right1 img {
@@ -1299,7 +1353,7 @@ ul.social-nav.model-3d-0.footer-social.w3_agile_social.top_agile_third {
 .modal_body_left.modal_body_left1 {
   padding-left: 0;
 }
-.modal-body.modal-body-sub_agile {
+.modal-body.modal-body-sub_agile, .modal-body-sub_agile_login {
   padding: 0 1em 2em 2em;
   margin-top: 1em;
 }
@@ -2495,11 +2549,17 @@ h3.agileits-icons-title {
   .grid_3.grid_4.w3_agileits_icons_page {
     margin-top: 0;
   }
+  .modal-body.modal-body-sub_agile_login {
+    height: 25em;
+  }
 }
 @media (max-width: 568px) {
   .icon-box {
     float: left;
     width: 100%;
+  }
+  .modal-body.modal-body-sub_agile_login {
+    height: 23em;
   }
 }
 @media (max-width: 480px) {
@@ -2512,6 +2572,9 @@ h3.agileits-icons-title {
   h3.icon-subheading {
     font-size: 19px;
   }
+  .modal-body.modal-body-sub_agile_login {
+    height: 22em;
+}
 }
 @media (max-width: 414px) {
   h3.agileits-icons-title {
@@ -2870,6 +2933,9 @@ h2.typoh2 {
   .bs-docs-example {
     display: none;
   }
+  .modal-body.modal-body-sub_agile_login {
+    height: 18em;
+}
 }
 /*-- //typography --*/
 /*-- Slider Part starts Here --*/
@@ -4668,6 +4734,24 @@ p.w3ls_para {
     display: flex;
     justify-content: space-between;
   }
+  .grid-cart{
+    grid-template-columns: 1fr
+  }
+  
+  .img-cart img{
+    height: 8em;
+    margin:3%
+  }
+  .cart-column{
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center
+  }
+
+  
+
 }
 
 /*Media query 767px hasta tablet  */
@@ -4680,13 +4764,16 @@ p.w3ls_para {
     justify-content: flex-end;
     text-align: center;
   }
-  .cart {
+  /* .cart {
     display: none;
-  }
+  } */
+  .modal-body.modal-body-sub_agile {
+    height: 32em;
+}
 
   .logo_agile {
     position: relative;
-    left: -7.2em;
+    left: -5.2em;
   }
 
   button.w3view-cart {
@@ -4759,6 +4846,13 @@ p.w3ls_para {
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
+  }
+  
+  .modal-body.modal-body-sub_agile_login {
+    height:30em
+  }
+  .carrito-mobile{
+    display:none
   }
   ul.dropdown-menu.multi-column.columns-3 {
     margin-top: 10px;
@@ -4854,6 +4948,9 @@ p.w3ls_para {
   .menu-inicio {
     margin-left: 0;
     width: 33vh;
+  }
+  .modal-body.modal-body-sub_agile {
+    height: 42em;
   }
 }
 
@@ -5195,6 +5292,9 @@ p.w3ls_para {
   .top_nav_right {
     width: 34vh;
   }
+  .modal-body.modal-body-sub_agile_login {
+    height: 25em;
+}
   .navbar-default {
     width: 69%;
   }
@@ -5357,6 +5457,9 @@ p.w3ls_para {
   .quantity-select {
     padding: 0 0px;
   }
+  .modal-body.modal-body-sub_agile_login {
+    height: 23em;
+}
   .w3ls_schedule_bottom_right_grid h3 {
     font-size: 1.2em;
     letter-spacing: 1px;
@@ -5376,6 +5479,10 @@ p.w3ls_para {
   .timetable_sub th,
   .timetable_sub td {
   }
+
+  .modal-body.modal-body-sub_agile {
+    height: 44em;
+}
   .menu-inicio {
     margin-left: 0;
     width: 30vh;
@@ -5720,6 +5827,9 @@ p.w3ls_para {
     float: left;
     width: 100%;
   }
+  .modal-body.modal-body-sub_agile {
+    height: 38em;
+}
   .navegador {
     width: 10em;
   }
@@ -5813,6 +5923,9 @@ p.w3ls_para {
   .modal_body_right.modal_body_right1 img {
     width: 33%;
   }
+  .modal-body.modal-body-sub_agile_login {
+    height: 17em;
+}
 }
 
 /* Media query 414px */
@@ -6087,6 +6200,9 @@ p.w3ls_para {
   .social-nav.model-3d-0.footer-social.w3_agile_social.two {
     margin-left: 0;
   }
+  .modal-body.modal-body-sub_agile_login {
+    height: 17em;
+}
 }
 
 /* Media query 320px comienzo mobile */
@@ -6094,6 +6210,9 @@ p.w3ls_para {
   .navegador {
     width: 8.2em;
   }
+  .modal-body.modal-body-sub_agile_login {
+    height: 18em;
+}
   .header ul li {
     display: inline-block;
     width: 100%;
@@ -6176,5 +6295,7 @@ p.w3ls_para {
   .sign-gd ul {
     margin-left: 0px;
   }
+
+
 }
 /*-- //responsive media queries --*/

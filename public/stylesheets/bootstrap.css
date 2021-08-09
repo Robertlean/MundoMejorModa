@@ -3880,9 +3880,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 0;
   list-style: none;
 }
-.nav > li {
-  position: relative;
-  display: block;
+.carrito-mobile{
+  display:none
 }
 .nav > li > a {
   position: relative;

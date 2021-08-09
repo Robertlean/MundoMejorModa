@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="col-sm-4 multi-gd-img">
                                     <ul class="multi-column-dropdown">
-                                        <li><a href="/products/mens">Todos</a></li>
+                                        <li><a href="/products/mens">TODOS</a></li>
                                         <li><a href="/products/mens/chaquetas">Chaquetas</a></li>
                                         <li><a href="/products/mens/polerones">Polerones</a></li>
                                         <li><a href="/products/mens/poleras">Poleras</a></li>
@@ -67,11 +67,11 @@
                                 <div class="col-sm-4 multi-gd-img">
                                     <ul class="multi-column-dropdown">
                                         <li><a href="/products/womens">TODOS</a></li>
+                                        <li><a href="/products/chaquetas">Chaquetas</a></li>
                                         <li><a href="/products/womens/polerones">Polerones</a></li>
                                         <li><a href="/products/womens/poleras">Poleras</a></li>
                                         <li><a href="/products/womens/parcas">Parcas</a></li>
                                         <li><a href="/products/womens/camisas">Camisas</a></li>
-                                        <li><a href="/products/womens/chaquetas">Chaquetas</a></li>
                                         <li><a href="/products/womens/casacas">Casacas</a></li>
                                         <li><a href="/products/womens/shorts">Shorts</a></li>
                                         <li><a href="/products/womens/pantalones">Pantalones</a></li>
@@ -91,16 +91,18 @@
                     <li class=" menu__item"><a href="#" data-toggle="modal" data-target="#myModal" class="menu__link">Ingresa</a></li>
                     <li class=" menu__item"><a href="#" data-toggle="modal" data-target="#myModal2" class="menu__link">Registrate</a></li>
 
-                    <li class="menu__item dropdown">                        
+                    <li class="menu__item dropdown carrito-mobile">                        
                         <div class="top_nav_right">
-                            <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                                <form action="#" method="post" class="last">
-                                    <input type="hidden" name="cmd" value="_cart">
-                                    <input type="hidden" name="display" value="1">
-                                    <button class="w3view-cart" type="submit" name="submit" value=""><i
-                                            class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-                                </form>
-                            </div>
+                            <a href="/cart">
+                                <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+                                    <div class="last">
+                                        <input type="hidden" name="cmd" value="_cart">
+                                        <input type="hidden" name="display" value="1">
+                                        <button class="w3view-cart" type="submit" name="submit" value=""><i
+                                                class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </a>
                         </div>                        
                     </li>
                 </ul>
@@ -112,15 +114,17 @@
         </div>
 
         <div class="top_nav_right">
-            <div class="wthreecartaits wthreecartaits2 carrito cart box_1">
-                <form action="#" method="post" class="last">
-                    <input type="hidden" name="cmd" value="_cart">
-                    <input type="hidden" name="display" value="1">
-                    <button class="w3view-cart" type="submit" name="submit" value=""><i
-                            class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-                </form>
+            <a href="/cart">
+                <div class="wthreecartaits wthreecartaits2 carrito cart box_1">
+                    <div class="last">
+                        <input type="hidden" name="cmd" value="_cart">
+                        <input type="hidden" name="display" value="1">
+                        <button class="w3view-cart" type="submit" name="submit" value=""><i
+                                class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                    </div>
 
-            </div>
+                </div>
+            </a>
         </div>
         <!-- header-bot -->
         
