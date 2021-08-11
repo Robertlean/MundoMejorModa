@@ -333,7 +333,7 @@ i.fa.fa-shopping-bag.top_logo_agile_bag {
   line-height: 1.8em;
 }
 
-/* Cart */
+/* Cart - Carrito de compras */
 .button-cancel button {
   border: none;
   border-radius: 3px;
@@ -348,6 +348,32 @@ i.fa.fa-shopping-bag.top_logo_agile_bag {
 .button-cancel :hover{
   transition: ease;
   background-color: #ff1d1d
+}
+.control-cart{
+  padding:.5em
+}
+.cart-column .info-grid-flex{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap:1em
+}
+.info-grid-flex{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+.info-grid-flex:first-child{
+  width: 100%;
+}
+.img-cart img{
+  height: 8em;
+  margin-left: .5em;
+}
+.button-cancel{
+  display: flex;
+  margin-right: .5em;
+  align-items: center;
 }
 
 /* Icons */
@@ -4743,12 +4769,7 @@ p.w3ls_para {
     margin:3%
   }
   .cart-column{
-    display:grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
-    gap: 1em;
-    justify-content: space-between;
-    align-items: center
-  }
+    display:flex
 
   
 
