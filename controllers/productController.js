@@ -1,5 +1,5 @@
 module.exports = {
- detail:(req, res) => {
+    detail:(req, res) => {
         res.render('single',{
             title: 'Detalle de producto'
         })

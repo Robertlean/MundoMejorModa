@@ -13,12 +13,12 @@
                         <div class="styled-input agile-styled-input-top">
                             <input type="email" name="email" required="">
                             <label>E-mail</label>
-                            <span></span>
+                            <small class="text-warning"><%= (typeof errors != 'undefined' && errors.email)?errors.mail.msg: "" %> </small>
                         </div>
                         <div class="styled-input">
                             <input type="password" name="password" required="">
                             <label>Contraseña</label>
-                            <span></span>
+                            <small class="text-warning"><%= (typeof errors != 'undefined' && errors.password)?errors.password.msg: "" %> </small>
                         </div>
                         <input type="submit" value="Ingresar">
                     </form>
