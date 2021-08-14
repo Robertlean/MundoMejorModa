@@ -31,38 +31,121 @@
         <div class="container" >
             <form action="/confirmar-pago" method="post">
                 <div class="grid-cart">
-                    <div class="products-right">
-                        <div class="control-cart cart-column">
-                            <div class="img-cart">
-                                <img src="images/m1.jpg" alt="">
-                            </div>
-                            <div class="info-grid-flex">
-                                <div>
-                                    <span>Camisa Formal Azul</span>
+                    <div>
+                        <!-- Producto en el carrito -->
+                        <div class="products-right" style="margin-bottom: 1em;">
+                            <div class="control-cart cart-column">
+                                <div class="img-cart">
+                                    <img src="images/m1.jpg" alt="">
                                 </div>
-                                <div>
-                                    <h6>Precio:</h6>
-                                    <span>$45,99</span>
+                                <div class="info-grid-flex">
+                                    <div>
+                                        <span>Camisa Formal Azul</span>
+                                    </div>
+                                    <div>
+                                        <h6>Precio:</h6>
+                                        <span>$45,99</span>
+                                    </div>
+                                    <div>
+                                        <h6>Cantidad:</h6>
+                                        <input type="number" name="cant" min="1" max="20" value="1">                                
+                                    </div>
+                                    <div>
+                                        <h6>Subtotal:</h6>
+                                        <span>$45,99</span>
+                                    </div>
+    
                                 </div>
-                                <div>
-                                    <h6>Cantidad:</h6>
-                                    <input type="number" name="cant" min="1" max="20" value="1">                                
+                                
+                                <div class="button-cancel">
+                                    <button type="reset"><i class="far fa-trash-alt"></i></button>
                                 </div>
-                                <div>
-                                    <h6>Subtotal:</h6>
-                                    <span>$45,99</span>
-                                </div>
-
-                            </div>
-                            
-                            <div class="button-cancel">
-                                <button type="reset"><i class="far fa-trash-alt"></i></button>
                             </div>
                         </div>
+
+                        <div class="products-right" style="margin-bottom: 1em;">
+                            <div class="control-cart cart-column">
+                                <div class="img-cart">
+                                    <img src="images/m1.jpg" alt="">
+                                </div>
+                                <div class="info-grid-flex">
+                                    <div>
+                                        <span>Camisa Formal Azul</span>
+                                    </div>
+                                    <div>
+                                        <h6>Precio:</h6>
+                                        <span>$45,99</span>
+                                    </div>
+                                    <div>
+                                        <h6>Cantidad:</h6>
+                                        <input type="number" name="cant" min="1" max="20" value="1">                                
+                                    </div>
+                                    <div>
+                                        <h6>Subtotal:</h6>
+                                        <span>$45,99</span>
+                                    </div>
+    
+                                </div>
+                                
+                                <div class="button-cancel">
+                                    <button type="reset"><i class="far fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="products-right">
+                            <div class="control-cart cart-column">
+                                <div class="img-cart">
+                                    <img src="images/m1.jpg" alt="">
+                                </div>
+                                <div class="info-grid-flex">
+                                    <div>
+                                        <span>Camisa Formal Azul</span>
+                                    </div>
+                                    <div>
+                                        <h6>Precio:</h6>
+                                        <span>$45,99</span>
+                                    </div>
+                                    <div>
+                                        <h6>Cantidad:</h6>
+                                        <input type="number" name="cant" min="1" max="20" value="1">                                
+                                    </div>
+                                    <div>
+                                        <h6>Subtotal:</h6>
+                                        <span>$45,99</span>
+                                    </div>
+    
+                                </div>
+                                
+                                <div class="button-cancel">
+                                    <button type="reset"><i class="far fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+                    <!-- Fin de productoen el carrito -->
+
+                    <!-- Total compra -->
                     <div class="products-right">
-                        <div class="control-cart">
-                            <h4>Aquí irá detalle de la compra y el pago</h4>
+                        <div class="control-cart newsright slide-subtotal">
+                            <div class="subtotales">
+                                <small>Subtotal:</small>
+                                <span>$ <%- (45.99*3) %> </span>
+                            </div>
+                            <div class="subtotales">
+                                <small>Descuento:</small>
+                                <span>$ 30.00</span>
+                            </div>
+                            <div class="subtotales">
+                                <small>Valor de envio:</small>
+                                <span>$ 130.00</span>
+                            </div>
+                            <div class="subtotales">
+                                <small class="total">Total:</small>
+                                <span>$ <%- 45.99*3-30+130 %> </span>
+                            </div>
+                            <input type="submit" value="Confirmar compra" style="margin-top: 1em; margin:0">
                         </div>
                     </div>
                 </div>
