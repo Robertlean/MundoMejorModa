@@ -12,4 +12,7 @@ const registerValidator = require('../validation/registerValidator');
 /* GET users login. */
 router.get('/about', about)
 router.get('/administrador', adminMiddleware, administrador);
+router.get('/about', userController.about);
+router.post('/register', userController.processRegister)
+
 module.exports = router;
