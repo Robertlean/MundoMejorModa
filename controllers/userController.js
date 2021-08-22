@@ -12,7 +12,9 @@ module.exports = {
     },
     administrador: (req, res) => {
         
-        return res.render('/administrador')
+        return res.render('administrador',{
+          title: 'Administrador'
+      })
      },
     processLogin: (req,res) => {
 

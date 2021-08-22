@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head')%>
+<body>
+    <!-- header -->
+	<%-include('./partials/header')%>
+    <!-- ------ -->
+
+    <!-- modals/ventanas emergentes -->
+    <%-include('./partials/modals')%>
+    <!-- //modals/ventanas emergentes-->
+
+    <!-- main -->
+    <main class="administrador">
+        <div class="tab1">
+            <!-- Tarjeta ejemplo para un producto -->
+            <div class="col-md-3 product-men">										
+                <div class="men-pro-item simpleCart_shelfItem">												
+                    <div class="men-thumb-item">
+                        <img src="/images/m1.jpg" alt="" class="pro-image-front">
+                        <img src="/images/m1.jpg" alt="" class="pro-image-back">
+                        <div class="men-cart-pro">
+                            <div class="inner-men-cart-pro">
+                                <a href="/products/detail"
+                                    class="link-product-add-cart">Ver</a>
+                            </div>
+                        </div>
+                       
+    
+                    </div>
+                    <div class="item-info-product ">
+                        <h4><a href="/products/detail">Remera Formal Azul</a></h4>
+                        <div class="info-product-price">
+                            <span class="item_price">$45.99</span>
+                            <del>$69.71</del>
+                        </div>
+    
+                        <form action="" method="POST">
+                            <div class="d-grid gap-2 col-6 ">
+                              <a href="/products/editar/" type="button" class="admin-btn editar-btn btn ">EDITAR</a>
+                                <button class="btn btn-danger admin-btn">ELIMINAR</button>
+                            </div>			
+                        </form>		
+                    </div>
+                </div>
+            </div>
+
+
+        </main>
+    <div class="clearfix"> </div>
+    <!--  main -->
+
+    <%- include('./partials/pre-footer') %>
+    <%- include('./partials/footer')%>    
+    <%- include('./partials/scripts')%> 
+</body>
+
+</html>
