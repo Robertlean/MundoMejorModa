@@ -38,7 +38,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         rol: {
             type: dataTypes.STRING,
-            allowNull: true
+            allowNull: false
         }
 
     }
