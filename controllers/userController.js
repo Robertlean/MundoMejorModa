@@ -65,5 +65,27 @@ module.exports = {
         }
 
     },
+    processLogin: (req,res) =>{
+      let errors = validationResult(req);
+     const{email,password} = req.body;
+     if(errors.isEmpty()){
+       let user = db.users.find(user => user.email === email)
+       req.session.userLogin = {
+        name : user.name,
+        email: user.email,
+        rol: user.rol,
+        telefono: user.telefono,
+        calle: user.calle,
+        comuna: user.comuna
+       }
+     }else{
+       return res.render('index',{
+        title: 'Inicio',
+        errores: errors.mapped()
+    })
+     }
+
+    
+    },
    
    }
