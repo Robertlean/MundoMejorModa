@@ -10,6 +10,12 @@ module.exports = {
     about:(req,res) =>{
         res.render('about')
     },
+    administrador: (req, res) => {
+        
+        return res.render('administrador',{
+          title: 'Administrador'
+      })
+     },
     processLogin: (req,res) => {
 
     },
