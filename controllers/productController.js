@@ -14,6 +14,16 @@ module.exports = {
             title: 'Ropa masculina'
         })
     },
+    mostraradd: (req, res) => {
+        res.render('productAdd',{
+            title: 'Agregar un producto'
+        })
+    },
+    mostraredit: (req, res) => {
+        res.render('productEdit', {
+            title: "Editar producto"
+        })
+    }
 
 
 }
