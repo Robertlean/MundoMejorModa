@@ -10,15 +10,12 @@ module.exports = {
     about:(req,res) =>{
         res.render('about')
     },
-    administrador: (req, res) => {
-        
+    administrador: (req, res) => {        
         return res.render('administrador',{
           title: 'Administrador'
       })
      },
-    processLogin: (req,res) => {
-
-    },
+    
     processRegister: (req,res) => {
         let errors = validationResult(req);
         console.log(req.body)
@@ -65,27 +62,51 @@ module.exports = {
         }
 
     },
-    processLogin: (req,res) =>{
-      let errors = validationResult(req);
-     const{email,password} = req.body;
-     if(errors.isEmpty()){
-       let user = db.users.find(user => user.email === email)
-       req.session.userLogin = {
-        name : user.name,
+  processLogin: (req, res) => {
+    let errors = validationResult(req);
+    const { email } = req.body;
+
+    if (errors.isEmpty()) {
+      db.users.findOne({
+        where: {
+          mail: email
+        }
+      })
+        .then(usuario => {
+          req.session.usuario = {
+            name: user.name,
+            email: user.email,
+            rol: user.rol,
+            telefono: user.telefono,
+            calle: user.calle,
+            comuna: user.comuna
+          }
+          res.locals.usuario = req.session.usuario
+          return res.redirect('/pete')
+        })
+        .catch(error => {
+          res.send(error)
+          
+        })
+    } else {
+      return res.render('index', {
+        title: 'Inicio',
+        errores: errors.mapped()
+      })
+    }
+    
+      /* let user = db.users.find(user => user.email === email)
+      req.session.userLogin = {
+        name: user.name,
         email: user.email,
         rol: user.rol,
         telefono: user.telefono,
         calle: user.calle,
         comuna: user.comuna
-       }
-     }else{
-       return res.render('index',{
-        title: 'Inicio',
-        errores: errors.mapped()
-    })
-     }
-
+      } */
     
-    },
+
+
+  },
    
-   }
+}

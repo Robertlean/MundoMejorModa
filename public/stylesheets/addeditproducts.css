@@ -1,7 +1,6 @@
 .cargaimg{
     display:flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 .cargaimg img{
@@ -11,4 +10,39 @@
 }
 .cargaimg input[type="button"]{
     background-color: #30e878;
+}
+.editaragregar{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap:.5em;
+    justify-content: center;
+    
+  }
+.marco{
+    padding: 1em;
+    cursor: pointer;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    border: 1px solid #D1CFCF;
+    border-radius: 3px
+
+}
+.grid-mitades{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em
+}
+.flexible{
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.botonera{
+    display: flex;
+    justify-content: center;
+    margin-top: .5em;
+    gap:.5em
 }
