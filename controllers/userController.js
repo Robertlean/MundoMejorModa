@@ -31,9 +31,20 @@ module.exports = {
                 comuna: req.body.comuna
 
             })
-            .then(result => {
+            .then(usuario => {
+              req.session.usuario = {
+                name: user.name,
+                email: user.email,
+                rol: user.rol,
+                telefono: user.telefono,
+                calle: user.calle,
+                comuna: user.comuna
+              }
+              console.log(usuario)
+              res.locals.usuario = req.session.usuario
+
                 console.log('llegue aquí')
-                res.redirect('/users/login')
+                res.redirect('/')
             })
             .catch(errores => {
           
@@ -81,8 +92,13 @@ module.exports = {
             calle: user.calle,
             comuna: user.comuna
           }
+          console.log(usuario)
           res.locals.usuario = req.session.usuario
-          return res.redirect('/pete')
+          if (recordar){
+            res.cookie('MundoMejor', req.session.usuario,{maxAge: 1000*60*60*24})
+          }
+          
+          return res.redirect('/')
         })
         .catch(error => {
           res.send(error)

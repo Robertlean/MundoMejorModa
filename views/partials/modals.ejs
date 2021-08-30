@@ -20,6 +20,10 @@
                             <label>Contraseña</label>
                             <small class="text-warning"><%= (typeof errors != 'undefined' && errors.password)?errors.password.msg: "" %> </small>
                         </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="recordar">
+                            <label class="form-check-label" for="exampleCheck1" >Recordarme</label>
+                        </div>
                         <input type="submit" value="Ingresar">
                         <!-- Anto, aquí deje comentado el error que te había indicado por what -->
                         <span class="text-danger"><%# (typeof locals.errores && errores.email) ? errores.email.msg : null %></span>
