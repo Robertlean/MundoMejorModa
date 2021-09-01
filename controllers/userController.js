@@ -42,6 +42,7 @@ module.exports = {
               }
               console.log(usuario)
               res.locals.usuario = req.session.usuario
+              r
 
                 console.log('llegue aquí')
                 res.redirect('/')
@@ -73,56 +74,46 @@ module.exports = {
         }
 
     },
-  processLogin: (req, res) => {
-    let errors = validationResult(req);
-    const { email } = req.body;
+    processLogin: (req, res) => {
+      let errors = validationResult(req);
+      const { email } = req.body;
 
-    if (errors.isEmpty()) {
-      db.users.findOne({
-        where: {
-          mail: email
-        }
-      })
-        .then(usuario => {
-          req.session.usuario = {
-            name: user.name,
-            email: user.email,
-            rol: user.rol,
-            telefono: user.telefono,
-            calle: user.calle,
-            comuna: user.comuna
+      if (errors.isEmpty()) {
+        db.users.findOne({
+          where: {
+            mail: email
           }
-          console.log(usuario)
-          res.locals.usuario = req.session.usuario
-          if (recordar){
-            res.cookie('MundoMejor', req.session.usuario,{maxAge: 1000*60*60*24})
-          }
-          
-          return res.redirect('/')
         })
-        .catch(error => {
-          res.send(error)
-          
+          .then(usuario => {
+            req.session.usuario = {
+              name: user.name,
+              email: user.email,
+              rol: user.rol,
+              telefono: user.telefono,
+              calle: user.calle,
+              comuna: user.comuna
+            }
+            console.log(usuario)
+            res.locals.usuario = req.session.usuario
+            if (recordar){
+              res.cookie('MundoMejor', req.session.usuario,{maxAge: 1000*60*60*24})
+            }
+            
+            return res.redirect('/')
+          })
+          .catch(error => {
+            res.send(error)
+            
+          })
+      } else {
+        return res.render('index', {
+          title: 'Inicio',
+          errores: errors.mapped()
         })
-    } else {
-      return res.render('index', {
-        title: 'Inicio',
-        errores: errors.mapped()
-      })
-    }
-    
-      /* let user = db.users.find(user => user.email === email)
-      req.session.userLogin = {
-        name: user.name,
-        email: user.email,
-        rol: user.rol,
-        telefono: user.telefono,
-        calle: user.calle,
-        comuna: user.comuna
-      } */
-    
+      }
+      
 
 
-  },
+    },
    
 }

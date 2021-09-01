@@ -1,14 +1,10 @@
 //aca requeriria los usuarios de la base de datos 
 
-function administrador(req, res, next) {
-  usuarios.forEach((usuario) => {
-    if (usuario.tipo === req.query.usuario) {
-      return res.send("/administrador");
-    } else {
-      return res.redirect("/");
-    }
-    next();
-  });
+module.exports = function sessionUserAdminCheck(req,res,next){
+  if(req.session.usuario && req.session.usuario.rol == "admin"){
+      next()
+  }else{
+    req.session.url = req.originalUrl;
+      res.redirect('/')
+  }
 }
-
-module.exports = administrador;
