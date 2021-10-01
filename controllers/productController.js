@@ -1,10 +1,35 @@
+/* Data base */
+const db = require('../database/models')
+
 module.exports = {
     detail:(req, res) => {
-        res.render('single',{
-            title: 'Detalle de producto'
+        db.products.findOne({
+            name: req.params.id
         })
+        .then(product => {
+            res.render('single',{
+                title: product.name,
+                producto: product
+            })
+        })
+        .catch(error => res.send(error))        
     },
     womens:(req, res) => {
+        db.category.finAll({
+            where: {
+                name: req.params.id
+            },
+            associate:[productos]
+        })
+        .then(result =>{
+            console.log(result)
+            res.render('womens',{
+                title: 'Ropa Femenina',
+                producto: result,
+
+            })
+        })
+        /* Continuar por aquí. No probar por que se romperá */
         res.render('womens',{
             title: 'Ropa femenina'
         })

@@ -14,7 +14,7 @@ module.exports = {
         return res.render('administrador',{
           title: 'Administrador'
       })
-     },
+    },
     
     processRegister: (req,res) => {
         let errors = validationResult(req);
@@ -110,10 +110,14 @@ module.exports = {
           title: 'Inicio',
           errores: errors.mapped()
         })
-      }
-      
-
-
+      }   
     },
+    logout: (req, res) => {
+      req.session.destroy();
+      if (req.cookies.userCosmica) {
+        res.cookie('userCosmica', '', { maxAge: -1 })
+      }
+      return res.redirect('/')
+    }
    
 }
