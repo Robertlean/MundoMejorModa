@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
             unique: true
         },
-        telefono: {
+        phone: {
             type: dataTypes.STRING,
             allowNull: false,
             unique: true
@@ -36,10 +36,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: true
         },
-        rol: {
-            type: dataTypes.STRING,
+        rolId: {
+            type: dataTypes.INTEGER,
             allowNull: false
-        }
+        },
 
     }
 
@@ -50,6 +50,15 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const users = sequelize.define(alias, cols, config);
+
+    users.associate = models => {
+        users.hasMany(models.rol, {
+            as: "rol",
+            foreignKey: "rolId",
+            where: "name"
+        })
+    }
+    
 
     return users;
 }

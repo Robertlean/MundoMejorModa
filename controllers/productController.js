@@ -15,29 +15,39 @@ module.exports = {
         .catch(error => res.send(error))        
     },
     womens:(req, res) => {
-        db.category.finAll({
+        db.products.findAll({
             where: {
-                name: req.params.id
+                name: req.params.genre
             },
-            associate:[productos]
+            include: ["producto"]
         })
         .then(result =>{
             console.log(result)
             res.render('womens',{
                 title: 'Ropa Femenina',
-                producto: result,
+                //producto: result,
 
             })
         })
-        /* Continuar por aquí. No probar por que se romperá */
-        res.render('womens',{
-            title: 'Ropa femenina'
-        })
+        .then(error => res.send(error))
+       
     },
     mens:(req, res) => {
-        res.render('mens',{
-            title: 'Ropa masculina'
+        db.genres.findAll({
+            where: {
+                name: req.params.genre
+            },
+            include: ['producto']
         })
+        .then(result =>{
+            console.log(result)
+            res.render('mens',{
+                title: 'Ropa Masculina',
+                //producto: result,
+
+            })
+        })
+        .then(error => res.send(error))
     },
     mostraradd: (req, res) => {
         res.render('productAdd',{
@@ -49,7 +59,5 @@ module.exports = {
             title: "Editar producto"
         })
     }
-
-
 
 }

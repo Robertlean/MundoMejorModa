@@ -1,13 +1,16 @@
+const db = require('../database/models')
+
 module.exports = {
     index:(req, res) => {
-        res.render('index',{
-            title: 'Inicio'
+        db.products.findAll({
+            include: ['colores']
         })
-    },
-    cart: (req, res) => {
-        res.render('cart', {
-            title: 'Carrito de compras'
-        })
-    }
+        .then(product => {
+            res.render('index',{
+                title: "Inicio",
+                productos: product
+            })
+       })
+    }   
 
 }

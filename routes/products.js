@@ -5,8 +5,8 @@ var { detail, womens, mens, mostraradd, mostraredit } =require('../controllers/p
 
 /* GET products pages. */
 router.get('/detail', detail);
-router.get('/womens', womens);
-router.get('/mens',mens);
+router.get('/:genre', womens);
+router.get('/:genre',mens);
 router.get('/agregar', mostraradd);
 
 router.get('/editar/:id', mostraredit)

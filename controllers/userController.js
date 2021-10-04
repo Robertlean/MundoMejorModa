@@ -19,14 +19,14 @@ module.exports = {
     processRegister: (req,res) => {
         let errors = validationResult(req);
         console.log(req.body)
-
+        console.log(errors)
         if (errors.isEmpty()){
             db.users.create({
                 name: req.body.name.trim(),
                 mail: req.body.email.trim(),
                 password: bcrypt.hashSync(req.body.password.trim(), 10),
-                rol: 'usuario',
-                telefono: req.body.telefono,
+                rolId: 1,
+                phone: req.body.telefono,
                 calle: req.body.calle,
                 comuna: req.body.comuna
 
@@ -48,7 +48,7 @@ module.exports = {
                 res.redirect('/')
             })
             .catch(errores => {
-          
+                console.log(errores)
                 errores.errors.forEach(error => {
                   if (error.path == "name") {
                     errors["name"] = {};
@@ -64,9 +64,8 @@ module.exports = {
                   }
                   //return res.redirect('/login')
                 })
-                res.render('login', {
+                res.render('index', {
                   title: "Iniciar Sesión",
-                  css: "estilos.css",
                   errors: errors,
                   old: req.body
                 })
