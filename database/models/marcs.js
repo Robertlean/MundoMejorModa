@@ -23,14 +23,14 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false,
         underscored: true
     }
-    const marca = sequelize.define(alias, cols, config);
-    marca.associate = models => {
-        marca.hasMany(models.marcs,{
+    const marcs = sequelize.define(alias, cols, config);
+    marcs.associate = models => {
+        marcs.hasMany(models.products,{
             as: "marca",
-            foreignKey: "idMarca"
+            foreignKey: "idmarca"
         })
     }
         
-    return marca;
+    return marcs;
 
 }

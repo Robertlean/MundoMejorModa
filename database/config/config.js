@@ -1,7 +1,7 @@
 module.exports={
     "development": {
-      "username": "postgres",
-      "password": null,
+      "username": process.env.DB_USERNAME,
+      "password": process.env.DB_PASSWORD,
       "database": "mundomejormodaDB",
       "host": "localhost",
       "dialect": "postgres",

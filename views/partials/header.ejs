@@ -85,6 +85,30 @@
                             </div>
                         </ul>
                     </li>
+
+                    <!-- desplegables de marcas -->
+                    <li class="dropdown menu__item">
+                        <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Marcas<span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu multi-column columns-3">
+                            <div class="agile_inner_drop_nav_info">
+                                <div class="col-sm-4 multi-gd-img">
+                                    <ul class="multi-column-dropdown">
+                                        <li><a href="/products/marcas">TODOS</a></li>
+                                        <% marcas.forEach(marca => { %>
+                                            <li><a href="/products/<%= marca.name %>"><%= marca.name %> </a></li>
+                                        <% }) %>
+                                    </ul>
+                                </div>
+                                
+                                <div class="col-sm-8 multi-gd-img multi-gd-text ">
+                                    <a href="/products/womens"><img src="/images/top1.jpg" alt=" " /></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </ul>
+                    </li>
                     
                     <!-- Aquí irá un ejs -->
                     

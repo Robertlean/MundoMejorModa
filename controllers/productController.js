@@ -58,6 +58,7 @@ module.exports = {
         res.render('productEdit', {
             title: "Editar producto"
         })
-    }
+    },
+    // metodos para marcas
 
 }
