@@ -26,7 +26,7 @@ module.exports = (sequelize, dataTypes) => {
     const marcs = sequelize.define(alias, cols, config);
     marcs.associate = models => {
         marcs.hasMany(models.products,{
-            as: "marca",
+            as: "productos",
             foreignKey: "idmarca"
         })
     }
