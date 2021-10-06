@@ -73,8 +73,8 @@ module.exports = (sequelize, dataTypes) => {
             as: "marca",
             foreignKey: "idmarca"
         })
-        products.hasOne(models.genres,{
-            as: "producto",
+        products.belongsTo(models.genres,{
+            as: "genero",
             foreignKey: "idgenre"
         })
         products.hasMany(models.image,{
