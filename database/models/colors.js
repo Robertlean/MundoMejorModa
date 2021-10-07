@@ -27,8 +27,8 @@ module.exports = (sequelize, dataTypes) => {
     const color = sequelize.define(alias, cols, config);
     color.associate = models => {
         color.hasMany(models.products,{
-            as: "producto",
-            foreignKey: "id",
+            as: "colores",
+            foreignKey: "idColor",
             where: "color"
         })
     }

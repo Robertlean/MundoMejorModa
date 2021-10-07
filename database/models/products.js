@@ -26,23 +26,23 @@ module.exports = (sequelize, dataTypes) => {
         discount: {
             type: dataTypes.INTEGER,
         },
-        idcolor: {
+        idColor: {
             type: dataTypes.INTEGER,
             allowNull: false,
         },
-        idtalle: {
+        idTalle: {
             type: dataTypes.INTEGER,
             allowNull: false,
         },
-        idcategory: {
+        idCategory: {
             type: dataTypes.INTEGER,
             allowNull: false,
         },
-        idmarca: {
+        idMarca: {
             type: dataTypes.INTEGER,
             allowNull: false,
         },
-        idgenre:{
+        idGenre:{
             type: dataTypes.INTEGER,
             allowNull: false,
         }
@@ -52,34 +52,33 @@ module.exports = (sequelize, dataTypes) => {
         tableName: "products",
         timestamps: false,
         underscored: true,
-        freezeTableName: true,
     }
     const products = sequelize.define(alias, cols, config);
 
     products.associate = models => {
         products.belongsTo(models.colors, {
             as: "colores",
-            foreignKey: "idcolor",
+            foreignKey: "idColor",
         })
         products.belongsTo(models.talla,{
             as: "talle",
-            foreignKey: "idtalle"
+            foreignKey: "idTalle"
         })
         products.belongsTo(models.categories,{
             as: "categoria",
-            foreignKey: "idcategory"
+            foreignKey: "idCategory"
         })
         products.belongsTo(models.marcs,{
             as: "marca",
-            foreignKey: "idmarca"
+            foreignKey: "idMarca"
         })
         products.belongsTo(models.genres,{
             as: "genero",
-            foreignKey: "idgenre"
+            foreignKey: "idGenre"
         })
         products.hasMany(models.image,{
             as: "imagen",
-            foreignKey: "idproduct"
+            foreignKey: "idProduct"
         })
     }
         
