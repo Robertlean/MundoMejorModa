@@ -11,5 +11,5 @@ router.get('/agregar', mostraradd);
 
 router.get('/editar/:id', mostraredit)
 // ruta de marcas
-router.get('/marca/:id', marcas)
+router.get('/marca/:marca', marcas)
 module.exports = router;

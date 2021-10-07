@@ -50,9 +50,23 @@ module.exports = {
       .then((error) => res.send(error));
   },
   mostraradd: (req, res) => {
-    res.render("productAdd", {
-      title: "Agregar un producto",
-    });
+    db.marcs.findAll()
+    .then(marcas => {
+    
+      let marcsName = [];
+      marcas.forEach(marca => {
+          let nombreMarca = marca.name;
+          nombreMarca= nombreMarca.split(" ");
+          nombreMarca = nombreMarca.join('-');
+          marcsName.push(nombreMarca)
+      });
+      res.render("productAdd", {
+        title: "Agregar un producto",
+        marcsName
+        
+      });
+    })
+   
   },
   mostraredit: (req, res) => {
     res.render("productEdit", {
@@ -60,16 +74,25 @@ module.exports = {
     });
   },
   // metodos para marcas
+
   marcas: (req, res) => {
-    db.products
+    let marcaNombre = req.params.marca;
+    marcaNombre = marcaNombre.split("-");
+    marcaNombre = marcaNombre.join(" ");
+    db.marcs
       .findAll({
         where: {
-          idmarca: req.params.id,
+          name: marcaNombre,
         },
-        include: [{ association: "marca" }, { association: "genero" }],
+        include: [
+          {
+            association: "productos",
+            include: ["colores", "talle", "imagen", "categoria", "genero"],
+          },
+        ],
       })
       .then((productos) => {
-        return res.send("marca");
+        return res.send(productos);
       })
       .catch((error) => {
         console.log(error);
