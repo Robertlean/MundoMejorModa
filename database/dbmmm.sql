@@ -262,14 +262,14 @@ ALTER SEQUENCE public.marcs_id_seq OWNED BY public.marcs.id;
 CREATE TABLE public.products (
     id integer NOT NULL,
     name character varying NOT NULL,
-    idcolor integer NOT NULL,
-    idcategory integer NOT NULL,
-    idtalle integer NOT NULL,
-    idmarca integer NOT NULL,
+    idColor integer NOT NULL,
+    idCategory integer NOT NULL,
+    idTalle integer NOT NULL,
+    idMarca integer NOT NULL,
     description character varying,
     price numeric(4,2) NOT NULL,
     linkpago character varying NOT NULL,
-    idgenre integer NOT NULL,
+    idGenre integer NOT NULL,
     discount integer
 );
 

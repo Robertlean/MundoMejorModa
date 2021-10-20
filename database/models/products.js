@@ -11,6 +11,22 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false,
         },
+        color_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
+        categoryId: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
+        talleId: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
+        marcaId: {
+            type: dataTypes.INTEGER,
+            allowNull: false,
+        },
         description :{
             type: dataTypes.STRING,
             allowNull: false,
@@ -25,26 +41,6 @@ module.exports = (sequelize, dataTypes) => {
         },
         discount: {
             type: dataTypes.INTEGER,
-        },
-        idColor: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-        },
-        idTalle: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-        },
-        idCategory: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-        },
-        idMarca: {
-            type: dataTypes.INTEGER,
-            allowNull: false,
-        },
-        idGenre:{
-            type: dataTypes.INTEGER,
-            allowNull: false,
         }
     }
 
@@ -56,29 +52,29 @@ module.exports = (sequelize, dataTypes) => {
     const products = sequelize.define(alias, cols, config);
 
     products.associate = models => {
-        products.belongsTo(models.colors, {
-            as: "colores",
-            foreignKey: "idColor",
-        })
-        products.belongsTo(models.talla,{
-            as: "talle",
-            foreignKey: "idTalle"
-        })
         products.belongsTo(models.categories,{
             as: "categoria",
-            foreignKey: "idCategory"
+            foreignKey: "categoryId"
         })
-        products.belongsTo(models.marcs,{
-            as: "marca",
-            foreignKey: "idMarca"
-        })
-        products.belongsTo(models.genres,{
-            as: "genero",
-            foreignKey: "idGenre"
-        })
-        products.hasMany(models.image,{
+        
+        products.hasMany(models.images,{
             as: "imagen",
-            foreignKey: "idProduct"
+            foreignKey: "id"
+        })
+
+        products.belongsTo(models.colors, {
+            as: "colores",
+            foreignKey: "color_id"
+        })
+
+        products.belongsTo(models.marcs, {
+            as: "marcas",
+            foreignKey: "marcaId"
+        })
+
+        products.belongsTo(models.talla, {
+            as: "talle",
+            foreignKey: "talleId"
         })
     }
         

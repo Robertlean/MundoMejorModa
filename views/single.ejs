@@ -2,567 +2,566 @@
 <html>
 <!-- head -->
 <%-include('./partials/head')%>
-	<!-- ---- -->
-
 	<body>
 		<!-- header -->
 		<%-include('./partials/header')%>
-			<!-- ------ -->
 
-				<!-- modals/ventanas emergentes -->
-				<%-include('./partials/modals')%>
-					<!-- //modals/ventanas emergentes-->
+		<!-- modals/ventanas emergentes -->
+		<%-include('./partials/modals')%>
+		<!-- //modals/ventanas emergentes-->
+		
+		<!--/single_page-->
+		<!-- /banner_bottom_agile_info -->
+		<div class="page-head_agile_info_w3l">
+			<div class="container">
+				<h3>Detalle<span> del producto </span></h3>
+				<!--/w3_short-->
+				<div class="services-breadcrumb">
+					<div class="agile_inner_breadcrumb">
 
-				<!--/single_page-->
-	<!-- /banner_bottom_agile_info -->
-	<div class="page-head_agile_info_w3l">
-		<div class="container">
-			<h3>Detalle<span> de producto </span></h3>
-			<!--/w3_short-->
-			<div class="services-breadcrumb">
-				<div class="agile_inner_breadcrumb">
-
-					<ul class="w3_short">
-						<li><a href="/">Home</a><i>|</i></li>
-						<li>Detalle de producto</li>
-					</ul>
-				</div>
-			</div>
-			<!--//w3_short-->
-		</div>
-	</div>
-
-	<!-- banner-bootom-w3-agileits -->
-	<div class="banner-bootom-w3-agileits">
-		<div class="container">
-			<div class="col-md-4 single-right-left ">
-				<div class="grid images_3_of_2">
-					<div class="flexslider">
-
-						<ul class="slides">
-							<li data-thumb="/images/d2.jpg">
-								<div class="thumb-image"> <img src="/images/d2.jpg" data-imagezoom="true"
-										class="img-responsive"> </div>
-							</li>
-							<li data-thumb="/images/d1.jpg">
-								<div class="thumb-image"> <img src="/images/d1.jpg" data-imagezoom="true"
-										class="img-responsive"> </div>
-							</li>
-							<li data-thumb="/images/d3.jpg">
-								<div class="thumb-image"> <img src="/images/d3.jpg" data-imagezoom="true"
-										class="img-responsive"> </div>
-							</li>
+						<ul class="w3_short">
+							<li><a href="/">Home</a><i>|</i></li>
+							<li><a href="/<%= producto.categoria.name %> "> <%= producto.categoria.name %> </a><i>|</i></li>
+							<li><%= producto.name %> </li>
 						</ul>
-						<div class="clearfix"></div>
 					</div>
 				</div>
+				<!--//w3_short-->
 			</div>
-			<div class="col-md-8 single-right-left simpleCart_shelfItem">
-				<h3>Zapatillas nauticas</h3>
-				<p><span class="item_price">$650</span> <del>- $900</del></p>
-				
-				<div class="description">
-					<h5>Verifique la entrega, las opciones de pago y los cargos en su ubicación</h5>
-					<form action="#" method="post">
-						<input type="text" placeholder="ingresa tu region" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Enter pincode';}" required="">
-						<input type="submit" value="Verificar">
-					</form>
-				</div>
-				<div class="color-quality">
-					<div class="color-quality-right">
-						<h5>Talle :</h5>
-						<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-							<option value="xs">XS</option>
-							<option value="s">S</option>
-							<option value="m">M</option>
-							<option value="l">L</option>
-							<option value="xl">XL</option>
-							<option value="xxl">XXL</option>
-							<option value="xxxl">3XL</option>
-						</select>
-					</div>
-				</div>
-				<div class="color-quality">
-					<div class="color-quality-right">
-					
-						<div class="interes">
-							<h5>Color:</h5>
-							<select >
-								<option value="blanco" class="blanco" selected ></option>
-								<option value="verde" class="verde"></option>
-								<option value="amarillo" class="amarillo"></option>
-								<option value="rojo" class="rojo"></option>
-								<option value="azul" class="azul"></option>
-								<option value="negro" class="negro"></option>
-							
-							</select>
-						
+		</div>
+
+		<!-- banner-bootom-w3-agileits -->
+		<div class="banner-bootom-w3-agileits">
+			<div class="container">
+				<div class="col-md-4 single-right-left ">
+					<div class="grid images_3_of_2">
+						<div class="flexslider">
+
+							<ul class="slides">
+								<% img.forEach(fotos => { %> 
+								<li data-thumb="<%='/images/'+ fotos.name %>">
+									<div class="thumb-image"> <img src="<%= '/images/'+ fotos.name %> " data-imagezoom="true"
+											class="img-responsive"> </div>
+								</li>
+								<!-- <li data-thumb="/images/d1.jpg">
+									<div class="thumb-image"> <img src="/images/d1.jpg" data-imagezoom="true"
+											class="img-responsive"> </div>
+								</li>
+								<li data-thumb="/images/d3.jpg">
+									<div class="thumb-image"> <img src="/images/d3.jpg" data-imagezoom="true"
+											class="img-responsive"> </div>
+								</li> -->
+								<% }) %> 
+							</ul>
+							<div class="clearfix"></div>
 						</div>
 					</div>
 				</div>
-
-				<div class="occasion-cart">
-					<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+				<div class="col-md-8 single-right-left simpleCart_shelfItem">
+					<h3><%= producto.name%></h3>
+					<% if (producto.discount) { %>
+					 <p><span class="item_price">$<%=thousand( producto.price*(100-producto.discount)/100 )%></span> <del>- $<%= thousand(producto.price) %> </del></p>
+					<% }else {%>
+						<p><span class="item_price">$<%= thousand(producto.price)%></span></p>
+					<% } %> 
+					<div class="description">
+						<h5>Verifique la entrega, las opciones de pago y los cargos en su ubicación</h5>
 						<form action="#" method="post">
-							<fieldset>
-								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="add" value="1">
-								<input type="hidden" name="business" value=" ">
-								<input type="hidden" name="item_name" value="Wing Sneakers">
-								<input type="hidden" name="amount" value="650.00">
-								<input type="hidden" name="discount_amount" value="1.00">
-								<input type="hidden" name="currency_code" value="USD">
-								<input type="hidden" name="return" value=" ">
-								<input type="hidden" name="cancel_return" value=" ">
-								<button type="submit" name="submit" class="button-products" ><b>+</b><i class="fas fa-shopping-cart"></i></button>
-															</fieldset>
+							<input type="text" placeholder="ingresa tu region" onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'Enter pincode';}" required="">
+							<input type="submit" value="Verificar">
 						</form>
 					</div>
-
-				</div>
-
-			</div>
-			<div class="clearfix"> </div>
-			<!-- /new_arrivals -->
-			<div class="responsive_tabs_agileits">
-				<div id="horizontalTab">
-					<ul class="resp-tabs-list">
-						<li>Descripcion</li>
-					</ul>
-					<div class="resp-tabs-container">
-						<!--/tab_one-->
-						<div class="tab1">
-
-							<div class="single_page_agile_its_w3ls">
-								<h6>Lorem ipsum dolor sit amet</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue
-									eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue
-									dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-									labore et dolore magna aliqua.</p>
-								<p class="w3ls_para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque
-									vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat
-									augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab
-									ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-									ullamco. labore et dolore magna aliqua.</p>
-							</div>
-						</div>
-						<!--//tab_one-->
-					</div>
-				</div>
-			</div>
-			<!-- //new_arrivals -->
-			<!--/slider_owl-->
-
-			<div class="w3_agile_latest_arrivals">
-				<h3 class="wthree_text_info">Recien<span>llegados</span></h3>
-				<div class="col-md-3 product-men single">
-					<div class="men-pro-item simpleCart_shelfItem">
-						<div class="men-thumb-item">
-							<img src="/images/w2.jpg" alt="" class="pro-image-front">
-							<img src="/images/w2.jpg" alt="" class="pro-image-back">
-							<div class="men-cart-pro">
-								<div class="inner-men-cart-pro">
-									<a href="/" class="link-product-add-cart">Ver</a>
-								</div>
-							</div>
-							<span class="product-new-top">New</span>
-
-						</div>
-						<div class="item-info-product ">
-							<h4><a href="single.html">Blusa </a></h4>
-							<div class="info-product-price">
-								<span class="item_price">$140.99</span>
-								<del>$189.71</del>
-							</div>
-							
-							<div class="grid-productos">
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="/buy" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name"
-												value="Formal Blue Shirt" />
-											<input type="hidden" name="amount" value="30.99" />
-											<input type="hidden" name="discount_amount"
-												value="1.00" />
-											<input type="hidden" name="currency_code"
-												value="PesoCl" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											
-											<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
-										</fieldset>
-									</form>
-								</div>
-
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="/cart" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name"
-												value="Formal Blue Shirt" />
-											<input type="hidden" name="amount" value="30.99" />
-											<input type="hidden" name="discount_amount"
-												value="1.00" />
-											<input type="hidden" name="currency_code"
-												value="PesoCl" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit"
-												value="Comprar" class="button" />
-											
-										</fieldset>
-									</form>
-								</div>
-							</div>	
-
+					<div class="color-quality">
+						<div class="color-quality-right">
+							<h5>Talle :</h5>
+							<span><%= producto.talle.name %> </span>
+							<span><%= producto.talle.abrev %> </span>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3 product-men single">
-					<div class="men-pro-item simpleCart_shelfItem">
-						<div class="men-thumb-item">
-							<img src="/images/w4.jpg" alt="" class="pro-image-front">
-							<img src="/images/w4.jpg" alt="" class="pro-image-back">
-							<div class="men-cart-pro">
-								<div class="inner-men-cart-pro">
-									<a href="single.html" class="link-product-add-cart">Ver</a>
+					<div class="color-quality">
+						<div class="color-quality-right">						
+							<div class="interes">
+								<h5>Color:</h5>
+								<div style="background-color: <%=producto.color%>">
+									<span><%= producto.color %> </span>
 								</div>
 							</div>
-							<span class="product-new-top">New</span>
-
-						</div>
-						<div class="item-info-product ">
-							<h4><a href="single.html">Shorts</a></h4>
-							<div class="info-product-price">
-								<span class="item_price">$120.99</span>
-								<del>$189.71</del>
-							</div>
-							<div class="grid-productos">
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="/buy" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name"
-												value="Formal Blue Shirt" />
-											<input type="hidden" name="amount" value="30.99" />
-											<input type="hidden" name="discount_amount"
-												value="1.00" />
-											<input type="hidden" name="currency_code"
-												value="PesoCl" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											
-											<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
-										</fieldset>
-									</form>
-								</div>
-
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="/cart" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name"
-												value="Formal Blue Shirt" />
-											<input type="hidden" name="amount" value="30.99" />
-											<input type="hidden" name="discount_amount"
-												value="1.00" />
-											<input type="hidden" name="currency_code"
-												value="PesoCl" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit"
-												value="Comprar" class="button" />
-											
-										</fieldset>
-									</form>
-								</div>
-							</div>	
-
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3 product-men single">
-					<div class="men-pro-item simpleCart_shelfItem">
-						<div class="men-thumb-item">
-							<img src="/images/s6.jpg" alt="" class="pro-image-front">
-							<img src="/images/s6.jpg" alt="" class="pro-image-back">
-							<div class="men-cart-pro">
-								<div class="inner-men-cart-pro">
-									<a href="single.html" class="link-product-add-cart">Ver</a>
+
+					<div class="color-quality">
+						<div class="color-quality-right">						
+							<div class="interes">
+								<h5>Color:</h5>
+								<div style="background-color: <%=producto.color%>">
+									<span><%= producto.color %> </span>
 								</div>
 							</div>
-							<span class="product-new-top">New</span>
-
-						</div>
-						<div class="item-info-product ">
-							<h4><a href="single.html">Aero Canvas zapatillas </a></h4>
-							<div class="info-product-price">
-								<span class="item_price">$120.99</span>
-								<del>$199.71</del>
-							</div>
-							<div class="grid-productos">
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="/buy" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name"
-												value="Formal Blue Shirt" />
-											<input type="hidden" name="amount" value="30.99" />
-											<input type="hidden" name="discount_amount"
-												value="1.00" />
-											<input type="hidden" name="currency_code"
-												value="PesoCl" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											
-											<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
-										</fieldset>
-									</form>
-								</div>
-
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="/cart" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name"
-												value="Formal Blue Shirt" />
-											<input type="hidden" name="amount" value="30.99" />
-											<input type="hidden" name="discount_amount"
-												value="1.00" />
-											<input type="hidden" name="currency_code"
-												value="PesoCl" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit"
-												value="Comprar" class="button" />
-											
-										</fieldset>
-									</form>
-								</div>
-							</div>	
-
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3 product-men single">
-					<div class="men-pro-item simpleCart_shelfItem">
-						<div class="men-thumb-item">
-							<img src="/images/w7.jpg" alt="" class="pro-image-front">
-							<img src="/images/w7.jpg" alt="" class="pro-image-back">
-							<div class="men-cart-pro">
-								<div class="inner-men-cart-pro">
-									<a href="single.html" class="link-product-add-cart">Ver</a>
-								</div>
-							</div>
-							<span class="product-new-top">New</span>
 
+					<div class="occasion-cart">
+						<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+							<form action="#" method="post">
+								<fieldset>
+									<input type="hidden" name="cmd" value="_cart">
+									<input type="hidden" name="add" value="1">
+									<input type="hidden" name="business" value=" ">
+									<input type="hidden" name="item_name" value="Wing Sneakers">
+									<input type="hidden" name="amount" value="650.00">
+									<input type="hidden" name="discount_amount" value="1.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="return" value=" ">
+									<input type="hidden" name="cancel_return" value=" ">
+									<button type="submit" name="submit" class="button-products" ><b>+</b><i class="fas fa-shopping-cart"></i></button>
+																</fieldset>
+							</form>
 						</div>
-						<div class="item-info-product ">
-							<h4><a href="single.html">Medias/Socks</a></h4>
-							<div class="info-product-price">
-								<span class="item_price">$100.99</span>
-								<del>$159.71</del>
-							</div>
-							<div class="grid-productos">
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="/buy" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name"
-												value="Formal Blue Shirt" />
-											<input type="hidden" name="amount" value="30.99" />
-											<input type="hidden" name="discount_amount"
-												value="1.00" />
-											<input type="hidden" name="currency_code"
-												value="PesoCl" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											
-											<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
-										</fieldset>
-									</form>
-								</div>
 
-								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-									<form action="/cart" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name"
-												value="Formal Blue Shirt" />
-											<input type="hidden" name="amount" value="30.99" />
-											<input type="hidden" name="discount_amount"
-												value="1.00" />
-											<input type="hidden" name="currency_code"
-												value="PesoCl" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit"
-												value="Comprar" class="button" />
-											
-										</fieldset>
-									</form>
-								</div>
-							</div>	
-						</div>
 					</div>
+
 				</div>
 				<div class="clearfix"> </div>
-				<!--//slider_owl-->
-			</div>
-		</div>
-	</div>
-	<!--//single_page-->
-							<!--/Servicios de la tienda/pre-footer-->
-							<%-include('./partials/pre-footer')%>
-							<!--//Servicios de la tienda/pre-footer-->
-				
-							<!-- footer -->
-						<%-include('./partials/footer')%>
-						<!-- //footer -->
+				<!-- /new_arrivals -->
+				<div class="responsive_tabs_agileits">
+					<div id="horizontalTab">
+						<ul class="resp-tabs-list">
+							<li>Descripcion</li>
+						</ul>
+						<div class="resp-tabs-container">
+							<!--/tab_one-->
+							<div class="tab1">
 
-					<!-- login -->
-					<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content modal-info">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-											aria-hidden="true">&times;</span></button>
+								<div class="single_page_agile_its_w3ls">
+									<h6>Lorem ipsum dolor sit amet</h6>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue
+										eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat augue
+										dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab ore et
+										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+										labore et dolore magna aliqua.</p>
+									<p class="w3ls_para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque
+										vehicula augue eget nisl ullamcorper, molestie blandit ipsum auctor. Mauris volutpat
+										augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut lab
+										ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+										ullamco. labore et dolore magna aliqua.</p>
 								</div>
-								<div class="modal-body modal-spa">
-									<div class="login-grids">
-										<div class="login">
-											<div class="login-bottom">
-												<h3>Sign up for free</h3>
-												<form>
-													<div class="sign-up">
-														<h4>Email :</h4>
-														<input type="text" value="Type here" onfocus="this.value = '';"
-															onblur="if (this.value == '') {this.value = 'Type here';}"
-															required="">
-													</div>
-													<div class="sign-up">
-														<h4>Password :</h4>
-														<input type="password" value="Password"
-															onfocus="this.value = '';"
-															onblur="if (this.value == '') {this.value = 'Password';}"
-															required="">
+							</div>
+							<!--//tab_one-->
+						</div>
+					</div>
+				</div>
+				<!-- //new_arrivals -->
+				<!--/slider_owl-->
 
-													</div>
-													<div class="sign-up">
-														<h4>Re-type Password :</h4>
-														<input type="password" value="Password"
-															onfocus="this.value = '';"
-															onblur="if (this.value == '') {this.value = 'Password';}"
-															required="">
-
-													</div>
-													<div class="sign-up">
-														<input type="submit" value="REGISTER NOW">
-													</div>
-
-												</form>
-											</div>
-											<div class="login-right">
-												<h3>Sign in with your account</h3>
-												<form>
-													<div class="sign-in">
-														<h4>Email :</h4>
-														<input type="text" value="Type here" onfocus="this.value = '';"
-															onblur="if (this.value == '') {this.value = 'Type here';}"
-															required="">
-													</div>
-													<div class="sign-in">
-														<h4>Password :</h4>
-														<input type="password" value="Password"
-															onfocus="this.value = '';"
-															onblur="if (this.value == '') {this.value = 'Password';}"
-															required="">
-														<a href="#">Forgot password?</a>
-													</div>
-													<div class="single-bottom">
-														<input type="checkbox" id="brand" value="">
-														<label for="brand"><span></span>Remember Me.</label>
-													</div>
-													<div class="sign-in">
-														<input type="submit" value="SIGNIN">
-													</div>
-												</form>
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a
-												href="#">Privacy Policy</a></p>
+				<div class="w3_agile_latest_arrivals">
+					<h3 class="wthree_text_info">Recien<span>llegados</span></h3>
+					<div class="col-md-3 product-men single">
+						<div class="men-pro-item simpleCart_shelfItem">
+							<div class="men-thumb-item">
+								<img src="/images/w2.jpg" alt="" class="pro-image-front">
+								<img src="/images/w2.jpg" alt="" class="pro-image-back">
+								<div class="men-cart-pro">
+									<div class="inner-men-cart-pro">
+										<a href="/" class="link-product-add-cart">Ver</a>
 									</div>
 								</div>
+								<span class="product-new-top">New</span>
+
+							</div>
+							<div class="item-info-product ">
+								<h4><a href="single.html">Blusa </a></h4>
+								<div class="info-product-price">
+									<span class="item_price">$140.99</span>
+									<del>$189.71</del>
+								</div>
+								
+								<div class="grid-productos">
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+										<form action="/buy" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name"
+													value="Formal Blue Shirt" />
+												<input type="hidden" name="amount" value="30.99" />
+												<input type="hidden" name="discount_amount"
+													value="1.00" />
+												<input type="hidden" name="currency_code"
+													value="PesoCl" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												
+												<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
+											</fieldset>
+										</form>
+									</div>
+
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+										<form action="/cart" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name"
+													value="Formal Blue Shirt" />
+												<input type="hidden" name="amount" value="30.99" />
+												<input type="hidden" name="discount_amount"
+													value="1.00" />
+												<input type="hidden" name="currency_code"
+													value="PesoCl" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												<input type="submit" name="submit"
+													value="Comprar" class="button" />
+												
+											</fieldset>
+										</form>
+									</div>
+								</div>	
+
 							</div>
 						</div>
 					</div>
-					<!-- //login -->
-					<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover"
-							style="opacity: 1;"> </span></a>
-					<script src="/javascripts/modernizr.custom.js"></script>
+					<div class="col-md-3 product-men single">
+						<div class="men-pro-item simpleCart_shelfItem">
+							<div class="men-thumb-item">
+								<img src="/images/w4.jpg" alt="" class="pro-image-front">
+								<img src="/images/w4.jpg" alt="" class="pro-image-back">
+								<div class="men-cart-pro">
+									<div class="inner-men-cart-pro">
+										<a href="single.html" class="link-product-add-cart">Ver</a>
+									</div>
+								</div>
+								<span class="product-new-top">New</span>
 
-					<!-- scripts -->
-					<%-include('./partials/scripts')%>
-						<!-- Custom-JavaScript-File-Links -->
-						<!-- single -->
-						<script src="/javascripts/imagezoom.js"></script>
-						<!-- single -->
-						<!-- script for responsive tabs -->
-						<script src="/javascripts/easy-responsive-tabs.js"></script>
-						<script>
-							$(document).ready(function () {
-								$('#horizontalTab').easyResponsiveTabs({
-									type: 'default', //Types: default, vertical, accordion           
-									width: 'auto', //auto or any width like 600px
-									fit: true,   // 100% fit in a container
-									closed: 'accordion', // Start closed if in accordion view
-									activate: function (event) { // Callback function if tab is switched
-										var $tab = $(this);
-										var $info = $('#tabInfo');
-										var $name = $('span', $info);
-										$name.text($tab.text());
-										$info.show();
-									}
-								});
-								$('#verticalTab').easyResponsiveTabs({
-									type: 'vertical',
-									width: 'auto',
-									fit: true
-								});
-							});
-						</script>
-						<!-- FlexSlider -->
-						<script src="/javascripts/jquery.flexslider.js"></script>
-						<script>
-							// Can also be used with $(document).ready()
-							$(window).load(function () {
-								$('.flexslider').flexslider({
-									animation: "slide",
-									controlNav: "thumbnails"
-								});
-							});
-						</script>
-						<!-- //FlexSlider-->
+							</div>
+							<div class="item-info-product ">
+								<h4><a href="single.html">Shorts</a></h4>
+								<div class="info-product-price">
+									<span class="item_price">$120.99</span>
+									<del>$189.71</del>
+								</div>
+								<div class="grid-productos">
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+										<form action="/buy" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name"
+													value="Formal Blue Shirt" />
+												<input type="hidden" name="amount" value="30.99" />
+												<input type="hidden" name="discount_amount"
+													value="1.00" />
+												<input type="hidden" name="currency_code"
+													value="PesoCl" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												
+												<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
+											</fieldset>
+										</form>
+									</div>
+
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+										<form action="/cart" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name"
+													value="Formal Blue Shirt" />
+												<input type="hidden" name="amount" value="30.99" />
+												<input type="hidden" name="discount_amount"
+													value="1.00" />
+												<input type="hidden" name="currency_code"
+													value="PesoCl" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												<input type="submit" name="submit"
+													value="Comprar" class="button" />
+												
+											</fieldset>
+										</form>
+									</div>
+								</div>	
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 product-men single">
+						<div class="men-pro-item simpleCart_shelfItem">
+							<div class="men-thumb-item">
+								<img src="/images/s6.jpg" alt="" class="pro-image-front">
+								<img src="/images/s6.jpg" alt="" class="pro-image-back">
+								<div class="men-cart-pro">
+									<div class="inner-men-cart-pro">
+										<a href="single.html" class="link-product-add-cart">Ver</a>
+									</div>
+								</div>
+								<span class="product-new-top">New</span>
+
+							</div>
+							<div class="item-info-product ">
+								<h4><a href="single.html">Aero Canvas zapatillas </a></h4>
+								<div class="info-product-price">
+									<span class="item_price">$120.99</span>
+									<del>$199.71</del>
+								</div>
+								<div class="grid-productos">
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+										<form action="/buy" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name"
+													value="Formal Blue Shirt" />
+												<input type="hidden" name="amount" value="30.99" />
+												<input type="hidden" name="discount_amount"
+													value="1.00" />
+												<input type="hidden" name="currency_code"
+													value="PesoCl" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												
+												<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
+											</fieldset>
+										</form>
+									</div>
+
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+										<form action="/cart" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name"
+													value="Formal Blue Shirt" />
+												<input type="hidden" name="amount" value="30.99" />
+												<input type="hidden" name="discount_amount"
+													value="1.00" />
+												<input type="hidden" name="currency_code"
+													value="PesoCl" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												<input type="submit" name="submit"
+													value="Comprar" class="button" />
+												
+											</fieldset>
+										</form>
+									</div>
+								</div>	
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 product-men single">
+						<div class="men-pro-item simpleCart_shelfItem">
+							<div class="men-thumb-item">
+								<img src="/images/w7.jpg" alt="" class="pro-image-front">
+								<img src="/images/w7.jpg" alt="" class="pro-image-back">
+								<div class="men-cart-pro">
+									<div class="inner-men-cart-pro">
+										<a href="single.html" class="link-product-add-cart">Ver</a>
+									</div>
+								</div>
+								<span class="product-new-top">New</span>
+
+							</div>
+							<div class="item-info-product ">
+								<h4><a href="single.html">Medias/Socks</a></h4>
+								<div class="info-product-price">
+									<span class="item_price">$100.99</span>
+									<del>$159.71</del>
+								</div>
+								<div class="grid-productos">
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+										<form action="/buy" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name"
+													value="Formal Blue Shirt" />
+												<input type="hidden" name="amount" value="30.99" />
+												<input type="hidden" name="discount_amount"
+													value="1.00" />
+												<input type="hidden" name="currency_code"
+													value="PesoCl" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												
+												<button type="submit" name="submit"	class="button button-products" ><b>+</b> <i class="fas fa-shopping-cart"></i></button>
+											</fieldset>
+										</form>
+									</div>
+
+									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+										<form action="/cart" method="post">
+											<fieldset>
+												<input type="hidden" name="cmd" value="_cart" />
+												<input type="hidden" name="add" value="1" />
+												<input type="hidden" name="business" value=" " />
+												<input type="hidden" name="item_name"
+													value="Formal Blue Shirt" />
+												<input type="hidden" name="amount" value="30.99" />
+												<input type="hidden" name="discount_amount"
+													value="1.00" />
+												<input type="hidden" name="currency_code"
+													value="PesoCl" />
+												<input type="hidden" name="return" value=" " />
+												<input type="hidden" name="cancel_return" value=" " />
+												<input type="submit" name="submit"
+													value="Comprar" class="button" />
+												
+											</fieldset>
+										</form>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+					<!--//slider_owl-->
+				</div>
+			</div>
+		</div>
+		<!--//single_page-->
+		<!--/Servicios de la tienda/pre-footer-->
+		<%-include('./partials/pre-footer')%>
+		<!--//Servicios de la tienda/pre-footer-->
+
+		<!-- footer -->
+		<%-include('./partials/footer')%>
+		<!-- //footer -->
+
+		<!-- login -->
+		<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content modal-info">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+								aria-hidden="true">&times;</span></button>
+					</div>
+					<div class="modal-body modal-spa">
+						<div class="login-grids">
+							<div class="login">
+								<div class="login-bottom">
+									<h3>Sign up for free</h3>
+									<form>
+										<div class="sign-up">
+											<h4>Email :</h4>
+											<input type="text" value="Type here" onfocus="this.value = '';"
+												onblur="if (this.value == '') {this.value = 'Type here';}"
+												required="">
+										</div>
+										<div class="sign-up">
+											<h4>Password :</h4>
+											<input type="password" value="Password"
+												onfocus="this.value = '';"
+												onblur="if (this.value == '') {this.value = 'Password';}"
+												required="">
+
+										</div>
+										<div class="sign-up">
+											<h4>Re-type Password :</h4>
+											<input type="password" value="Password"
+												onfocus="this.value = '';"
+												onblur="if (this.value == '') {this.value = 'Password';}"
+												required="">
+
+										</div>
+										<div class="sign-up">
+											<input type="submit" value="REGISTER NOW">
+										</div>
+
+									</form>
+								</div>
+								<div class="login-right">
+									<h3>Sign in with your account</h3>
+									<form>
+										<div class="sign-in">
+											<h4>Email :</h4>
+											<input type="text" value="Type here" onfocus="this.value = '';"
+												onblur="if (this.value == '') {this.value = 'Type here';}"
+												required="">
+										</div>
+										<div class="sign-in">
+											<h4>Password :</h4>
+											<input type="password" value="Password"
+												onfocus="this.value = '';"
+												onblur="if (this.value == '') {this.value = 'Password';}"
+												required="">
+											<a href="#">Forgot password?</a>
+										</div>
+										<div class="single-bottom">
+											<input type="checkbox" id="brand" value="">
+											<label for="brand"><span></span>Remember Me.</label>
+										</div>
+										<div class="sign-in">
+											<input type="submit" value="SIGNIN">
+										</div>
+									</form>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a
+									href="#">Privacy Policy</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+					<!-- //login -->
+		<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover"
+				style="opacity: 1;"> </span></a>
+		<script src="/javascripts/modernizr.custom.js"></script>
+
+		<!-- scripts -->
+		<%-include('./partials/scripts')%>
+			<!-- Custom-JavaScript-File-Links -->
+			<!-- single -->
+			<script src="/javascripts/imagezoom.js"></script>
+			<!-- single -->
+			<!-- script for responsive tabs -->
+			<script src="/javascripts/easy-responsive-tabs.js"></script>
+			<script>
+				$(document).ready(function () {
+					$('#horizontalTab').easyResponsiveTabs({
+						type: 'default', //Types: default, vertical, accordion           
+						width: 'auto', //auto or any width like 600px
+						fit: true,   // 100% fit in a container
+						closed: 'accordion', // Start closed if in accordion view
+						activate: function (event) { // Callback function if tab is switched
+							var $tab = $(this);
+							var $info = $('#tabInfo');
+							var $name = $('span', $info);
+							$name.text($tab.text());
+							$info.show();
+						}
+					});
+					$('#verticalTab').easyResponsiveTabs({
+						type: 'vertical',
+						width: 'auto',
+						fit: true
+					});
+				});
+			</script>
+			<!-- FlexSlider -->
+			<script src="/javascripts/jquery.flexslider.js"></script>
+			<script>
+				// Can also be used with $(document).ready()
+				$(window).load(function () {
+					$('.flexslider').flexslider({
+						animation: "slide",
+						controlNav: "thumbnails"
+					});
+				});
+			</script>
+			<!-- //FlexSlider-->
 	</body>
 
 </html>

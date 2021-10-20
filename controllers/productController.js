@@ -1,36 +1,31 @@
 /* Data base */
 const db = require("../database/models");
+const thousand = require('../functions/thousand')
 
 module.exports = {
   detail: (req, res) => {
-    db.products
-      .findOne({
-        name: req.params.id,
+    let detalle = req.params.product
+    detalle = detalle.split("-")
+    detalle = detalle.join(" ")
+    db.products.findOne({
+        where : {name: detalle},
+        include: ['categoria', 'talle', 'marcas']
       })
       .then((product) => {
-        res.render("single", {
-          title: product.name,
-          producto: product,
-        });
+        db.images.findAll({
+          where: {id_product : product.id}
+        })
+        .then(img => {
+          console.log(product)
+          res.render("single", {
+            title: product.name,
+            producto: product,
+            thousand,
+            img
+          });
+        })        
       })
       .catch((error) => res.send(error));
-  },
-  womens: (req, res) => {
-    db.products
-      .findAll({
-        where: {
-          name: req.params.genre,
-        },
-        include: ["genero"],
-      })
-      .then((result) => {
-        console.log(result);
-        res.render("womens", {
-          title: "Ropa Femenina",
-          //producto: result,
-        });
-      })
-      .then((error) => res.send(error));
   },
   mens: (req, res) => {
     db.genres

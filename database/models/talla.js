@@ -11,6 +11,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false,
             unique: true
+        },
+        abrev: {
+            type: dataTypes.STRING,
+            allowNull: false
         }
     }
     let config = {
@@ -23,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
     const talla = sequelize.define(alias, cols, config);
     talla.associate = models => {
         talla.hasMany(models.products,{
-            as: "producto",
+            as: "talle",
             foreignKey: "id"
         })
     }

@@ -4,7 +4,7 @@
     align-items: center;
 }
 .cargaimg img{
-    width: 75%;
+    width: 50%;
     border-radius: 3px;
     box-shadow: silver 0px 0px;
 }
@@ -27,22 +27,39 @@
     -o-transition: all 1s ease;
     transition: all 1s ease;
     border: 1px solid #D1CFCF;
-    border-radius: 3px
+    border-radius: 3px;
+    background-color: whitesmoke;
 
 }
-.grid-mitades{
+.grid-2fr{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em
 }
-.flexible{
-    flex-direction: column;
-    justify-content: space-between;
-    
+.grid-3fr{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em
+}
+.grid-2fr1fr1fr{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap:1em
 }
 .botonera{
     display: flex;
     justify-content: center;
     margin-top: .5em;
     gap:.5em
+}
+.botonera button a{
+    color: white
+}
+.grid-1fr{
+    display: grid;
+    grid-template-columns: 1fr
+}
+.grid-2fr div{
+    display: flex;
+    flex-direction: column;
 }

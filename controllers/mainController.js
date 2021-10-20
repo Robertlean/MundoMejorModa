@@ -1,51 +1,28 @@
-const db = require('../database/models')
+const db = require('../database/models');
+const thousand = require('../functions/thousand')
 
-module.exports = {
-    index:(req, res) => {
+
+module.exports = {      
+    index:(req, res) => {       
         db.products.findAll({
-            include: ['talle']
+            include: ['imagen']
         })
-        .then(productos =>{
-            let marcas = db.marcs.findAll()
-            .then(marcas => {
-                let marcsName = [];
-                marcas.forEach(marca => {
-                    let nombreMarca = marca.name;
-                    nombreMarca= nombreMarca.split(" ");
-                    nombreMarca = nombreMarca.join('-');
-                    marcsName.push(nombreMarca)
-                });
-            })
-            res.render('index', {
-                title: 'Inicio',
-                productos,
-                marcas
-            })
-        })
-
-        /* let productos = db.products.findAll({
-            association: {include: ['colores']},
-           
-        })
-        let marcas = db.marcs.findAll()        
-        Promise.all([productos, marcas])    
-        .then(([productos, marcas]) => {
+        .then(product =>{            
             let marcsName = [];
-            marcas.forEach(marca => {
-                let nombreMarca = marca.name;
+            product.forEach(producto => {
+                let nombreMarca = producto.name;
                 nombreMarca= nombreMarca.split(" ");
                 nombreMarca = nombreMarca.join('-');
                 marcsName.push(nombreMarca)
             });
-          
-          
-            res.render('index',{
-                title: "Inicio",
-                productos,
-                marcsName
+            console.log(thousand(product[0].price))
+            res.render('index', {
+                title: 'Inicio',
+                productos: product,
+                marcsName,
+                thousand
             })
-       })
-       .catch(error => console.log(error)) */
+        })
     }   
 
 }

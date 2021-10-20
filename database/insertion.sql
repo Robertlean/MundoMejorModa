@@ -44,3 +44,34 @@ insert into marcs(id, name, image)
 values (8, 'Stone Island', 'Stone-Island-Logo-1.png');
 insert into marcs(id, name, image)
 values (9, 'Tommy Hilfiger', 'Tommy_Hilfiger_Logo.png');
+
+/* Inserción para la tabla productos / elementos fictisios */
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values (1, 'Camisa Azul', 10, 5, 2, 3, 'Camisa manga larga color azul', 10000, 'default', 2, 15);
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values (2, 'Parcas', 2, 4, 3, 6, 'Parca color gris con capucha de color gris', 15000, 'default', 2, 15);
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values (3, 'Polerones 2 colores', 3,2, 1, 7, 'Poleron balnco y negro manga larga con cuello redondo', 9900, 'default', 2, 15);
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values (4, 'Sweter smokin', 2, 1, 1, 1, 'sweter estilo smokin con manga larga a botones', 1233, 'default', 2, 10);
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values ();
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values ();
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values ();
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values ();
+insert into products (id, name, idColor, idCategory, idTalle, idMarca, description, price, linkpago, idGenre, discount)
+values ();
+
+
+/* Inserción para la tabla images */
+insert into products (id, name, idProduct)
+values (1, 'm1.jpg', 1);
+insert into products (id, name, idProduct)
+values (2, 'm2.jpg', 2);
+insert into products (id, name, idProduct)
+values (3, 'm4.jpg', 3);
+insert into products (id, name, idProduct)
+values (4, 'm8.jpg', 4);
