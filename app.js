@@ -13,7 +13,8 @@ var session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
-var adminRouter = require('./routes/admin')
+var adminRouter = require('./routes/admin');
+var categoryRouter = require('./routes/category')
 
 var app = express();
 
@@ -31,7 +32,8 @@ app.use(methodOverride("_method"))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
-app.use('/admin', adminRouter)
+app.use('/admin', adminRouter);
+app.use('/category', categoryRouter)
 
 // manejo de sesiones
 app.use(session({secret: "Mundo Mejor Moda"}));

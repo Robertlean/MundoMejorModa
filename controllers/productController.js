@@ -4,14 +4,17 @@ const thousand = require('../functions/thousand')
 
 module.exports = {
   detail: (req, res) => {
+    console.log(req.params.product)
     let detalle = req.params.product
     detalle = detalle.split("-")
     detalle = detalle.join(" ")
+    console.log(detalle)
     db.products.findOne({
         where : {name: detalle},
         include: ['categoria', 'talle', 'marcas']
       })
       .then((product) => {
+        console.log(product)
         db.images.findAll({
           where: {id_product : product.id}
         })
@@ -27,19 +30,15 @@ module.exports = {
       })
       .catch((error) => res.send(error));
   },
-  mens: (req, res) => {
-    db.genres
-      .findAll({
-        where: {
-          name: req.params.genre,
-        },
+  all: (req, res) => {
+    db.categories.findAll({
         include: ["producto"],
       })
       .then((result) => {
         console.log(result);
         res.render("mens", {
-          title: "Ropa Masculina",
-          //producto: result,
+          title: "Indumentaría por categoria",
+          producto: result,
         });
       })
       .then((error) => res.send(error));

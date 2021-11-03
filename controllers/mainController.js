@@ -15,7 +15,7 @@ module.exports = {
                 nombreMarca = nombreMarca.join('-');
                 marcsName.push(nombreMarca)
             });
-            console.log(thousand(product[0].price))
+            console.log(marcsName)
             res.render('index', {
                 title: 'Inicio',
                 productos: product,
