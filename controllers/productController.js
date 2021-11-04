@@ -1,6 +1,7 @@
 /* Data base */
 const db = require("../database/models");
 const thousand = require('../functions/thousand')
+const capitalize = require('../functions/capitalize')
 
 module.exports = {
   detail: (req, res) => {
@@ -30,19 +31,7 @@ module.exports = {
       })
       .catch((error) => res.send(error));
   },
-  all: (req, res) => {
-    db.categories.findAll({
-        include: ["producto"],
-      })
-      .then((result) => {
-        console.log(result);
-        res.render("mens", {
-          title: "Indumentaría por categoria",
-          producto: result,
-        });
-      })
-      .then((error) => res.send(error));
-  },
+  
   mostraradd: (req, res) => {
     db.marcs.findAll()
     .then(marcas => {
@@ -92,4 +81,28 @@ module.exports = {
         console.log(error);
       });
   },
+  /* Start section category */
+  all: (req, res) => {
+    db.categories.findAll({
+        include: ["producto"],
+      })
+      .then((result) => {
+        console.log(result);
+        res.render("mens", {
+          title: "Indumentaría por categoría",
+          producto: result,
+        });
+      })
+      .then((error) => res.send(error));
+  },
+  category: (req, res) => {
+    db.categories.findOne({
+      where: {name: req.params.catid},
+      include: ["producto"],
+    })
+    .then( categoria => {
+      console.log(categoria.name)
+    })
+  }
+  /* End section category */
 };
