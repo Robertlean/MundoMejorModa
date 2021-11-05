@@ -5,7 +5,8 @@ const thousand = require('../functions/thousand')
 module.exports = {      
     index:(req, res) => {       
         db.products.findAll({
-            include: ['imagen']
+            include: ['imagen'],
+            limit: 15
         })
         .then(product =>{            
             let marcsName = [];

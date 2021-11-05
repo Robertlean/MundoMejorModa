@@ -83,17 +83,32 @@ module.exports = {
   },
   /* Start section category */
   all: (req, res) => {
-    db.categories.findAll({
-        include: ["producto"],
+    let categories = db.categories.findAll({
+      include: ['producto']
+    })
+    let products = db.products.findAll({
+      include: ['imagen','categoria', 'talle']
+    });
+    Promise.all([categories, products])
+    .then(([categories, products]) => {
+      console.log(products)
+      let marcsName = [];
+      products.forEach(producto => {
+          let nombreMarca = producto.name;
+          nombreMarca= nombreMarca.split(" ");
+          nombreMarca = nombreMarca.join('-');
+          marcsName.push(nombreMarca)
+      });
+      res.render('mens', {
+        title: 'Todos nuestros productos',
+        categories,
+        products,
+        marcsName,
+        capitalize,
+        thousand
       })
-      .then((result) => {
-        console.log(result);
-        res.render("mens", {
-          title: "Indumentaría por categoría",
-          producto: result,
-        });
-      })
-      .then((error) => res.send(error));
+    })
+
   },
   category: (req, res) => {
     db.categories.findOne({
@@ -101,7 +116,7 @@ module.exports = {
       include: ["producto"],
     })
     .then( categoria => {
-      console.log(categoria.name)
+      console.log(capitalize(categoria.name))
     })
   }
   /* End section category */
