@@ -2,6 +2,8 @@
 const db = require("../database/models");
 const thousand = require('../functions/thousand')
 const capitalize = require('../functions/capitalize')
+const {insertguion, insertespacio} = require('../functions/transformUrl')
+const categ = require('../functions/categorias')
 
 module.exports = {
   detail: (req, res) => {
@@ -87,23 +89,16 @@ module.exports = {
       include: ['producto']
     })
     let products = db.products.findAll({
-      include: ['imagen','categoria', 'talle']
+      include: ['imagen','categoria','talle']
     });
     Promise.all([categories, products])
     .then(([categories, products]) => {
-      console.log(products)
-      let marcsName = [];
-      products.forEach(producto => {
-          let nombreMarca = producto.name;
-          nombreMarca= nombreMarca.split(" ");
-          nombreMarca = nombreMarca.join('-');
-          marcsName.push(nombreMarca)
-      });
+      
       res.render('mens', {
         title: 'Todos nuestros productos',
         categories,
         products,
-        marcsName,
+        marcsName: insertguion(products),
         capitalize,
         thousand
       })
@@ -111,12 +106,24 @@ module.exports = {
 
   },
   category: (req, res) => {
-    db.categories.findOne({
-      where: {name: req.params.catid},
-      include: ["producto"],
+    db.products.findAll({
+      include: ['imagen', 'categoria', 'talle'],
+      where: {id: categ(req.params.catid)}
     })
-    .then( categoria => {
-      console.log(capitalize(categoria.name))
+    .then(product => {
+      db.categories.findOne({
+        where: {name: req.params.catid}
+      }).then(category => {
+        console.log(product)
+        res.render('category',{
+          title: category.name,
+          products: product,
+          categories: category,
+          marcsName: insertguion(product),
+          capitalize,
+          thousand
+        })
+      })
     })
   }
   /* End section category */

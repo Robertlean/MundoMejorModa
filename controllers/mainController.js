@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const thousand = require('../functions/thousand')
+const {insertguion} = require('../functions/transformUrl')
 
 
 module.exports = {      
@@ -9,18 +10,10 @@ module.exports = {
             limit: 15
         })
         .then(product =>{            
-            let marcsName = [];
-            product.forEach(producto => {
-                let nombreMarca = producto.name;
-                nombreMarca= nombreMarca.split(" ");
-                nombreMarca = nombreMarca.join('-');
-                marcsName.push(nombreMarca)
-            });
-            console.log(marcsName)
             res.render('index', {
                 title: 'Inicio',
                 productos: product,
-                marcsName,
+                marcsName: insertguion(product),
                 thousand
             })
         })
