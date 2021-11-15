@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "colors";
+    let alias = "color";
     let cols = {
         id:  {
             type: dataTypes.INTEGER,
@@ -7,19 +7,19 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             allowNull: false
         },
-        name: {
+        abrev: {
             type: dataTypes.STRING,
             allowNull: false,
             unique: true
         },
-        hexa:{
+        hexadecimal:{
             type: dataTypes.STRING,
             allowNull: false
         },
     }
 
     let config = {
-        tableName: "colors",
+        tableName: "color",
         timestamps: false,
         underscored: true,
         freezeTableName: true,
@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
     color.associate = models => {
         color.hasMany(models.products,{
             as: "colores",
-            foreignKey: "color_id",
+            foreignKey: "id",
             where: "color"
         })
     }

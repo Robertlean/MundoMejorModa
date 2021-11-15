@@ -46,11 +46,48 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!-- Contador para marcsName que contiene los nombres de los productos
 				separado por guiones -->
 				<% let i = 0 %> 
-                <% if (typeof products == "undefined" && products == "null") { %>
-                    <h2>Pronto incluiremos productos sobre <%= categories.name %> </h2>
+                <% if (products) { %>
+                    <% products.forEach(producto => { %>		
+			
+						<div class="col-md-4 product-men">
+							<div class="men-pro-item simpleCart_shelfItem">
+								<a href="/products/detail/<%= marcsName[i] %> ">										
+									<div class="men-thumb-item">						
+										<img src="/images/<%= producto.imagen[0].name %>" alt="" class="pro-image-front">
+										<img src="/images/<%= producto.imagen[0].name %>" alt="" class="pro-image-back">
+									
+									</div>
+									<span class="product-new-top">Talle: L</span>
+								</a>
+								<div class="item-info-product ">
+									<h4><a href="/products/detail/<%= marcsName[i] %> "><%= capitalize(producto.name) %> </a></h4>
+									<div class="info-product-price">
+										<% if (producto.discount) { %>
+											<span class="item_price">$<%= thousand(producto.price-(producto.price*producto.discount/100)) %> </span>
+											<del>$<%= thousand(producto.price) %> </del>
+										<% }else{ %>
+											<span class="item_price">$<%= thousand(producto.price) %> </span>
+										<%}%>
+									</div>
+	
+									<div class="grid-productos">
+										
+										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+											<a href="/products/detail/<%= marcsName[i] %> "><button class="button">Ver</button></a>
+										</div>
+												
+										<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+											<a href="<%= producto.linkpago %> "><button class="button">Comprar</button></a>
+										</div>
+									</div>						
+								</div>
+							</div>
+						</div>
+						<% i++ %> 
+					<%}); %>
                 <% }else{ %>
-                    
-
+                    <h4>Pronto incluiremos productos sobre <%= categories.name %> </h4>
+					
 				<% } %> 		
 			</div>		
 		</div>

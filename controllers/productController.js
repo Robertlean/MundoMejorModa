@@ -2,7 +2,9 @@
 const db = require("../database/models");
 const thousand = require('../functions/thousand')
 const capitalize = require('../functions/capitalize')
-const {insertguion, insertespacio} = require('../functions/transformUrl')
+const {insertguion, insertespacio, capitalbrand} = require('../functions/transformUrl')
+
+/* Nos trae un numero */
 const categ = require('../functions/categorias')
 
 module.exports = {
@@ -58,21 +60,40 @@ module.exports = {
       title: "Editar producto",
     });
   },
-  // metodos para marcas
 
-  marcas: (req, res) => {
-    let marcaNombre = req.params.marca;
-    marcaNombre = marcaNombre.split("-");
-    marcaNombre = marcaNombre.join(" ");
-    db.marcs
-      .findAll({
+
+  /* Start section blend */
+
+  allbrand: (req, res) => {
+    let brand = db.marcs.findAll({
+      include: ['productos']
+    })
+
+    let products = db.products.findAll({
+      include: ['imagen','categoria','talle']
+    })
+    Promise.all([brand, products])
+    .then(([brand, products]) => {
+      console.log(brand)
+      res.render('marca', {
+        title: 'Todos nuestros productos',
+        brand,
+        products,
+        marcsName: insertguion(products),
+        capitalize,
+        thousand
+      })
+    })
+
+
+    /* db.marcs.findAll({
         where: {
           name: marcaNombre,
         },
         include: [
           {
             association: "productos",
-            include: ["colores", "talle", "imagen", "categoria", "genero"],
+            include: ["talle", "imagen", "categoria", "genero"],
           },
         ],
       })
@@ -81,8 +102,19 @@ module.exports = {
       })
       .catch((error) => {
         console.log(error);
-      });
+      }); */
   },
+  brand: (req, res) => {
+    let marcs = db.marcs.findOne({
+      where: {name: capitalbrand(req.params.brandid)}
+    })
+    let products = db.products.findAll({
+      
+    })
+  },
+
+  /* End section brand */
+
   /* Start section category */
   all: (req, res) => {
     let categories = db.categories.findAll({
@@ -91,13 +123,15 @@ module.exports = {
     let products = db.products.findAll({
       include: ['imagen','categoria','talle']
     });
-    Promise.all([categories, products])
-    .then(([categories, products]) => {
-      
+    let color = db.color.findAll()
+    Promise.all([categories, products,color])
+    .then(([categories, products, color]) => {
+      console.log(color)
       res.render('mens', {
         title: 'Todos nuestros productos',
         categories,
         products,
+        color,
         marcsName: insertguion(products),
         capitalize,
         thousand
@@ -106,15 +140,23 @@ module.exports = {
 
   },
   category: (req, res) => {
+    /* let categorie = db.categorie.findOne({
+      where: {name: req.params.catid,
+      include: ['producto']}
+    })
+    let product = db.products.findAll{
+      where: {categoryId : categ(req.params.catid)}
+    } */
+
     db.products.findAll({
       include: ['imagen', 'categoria', 'talle'],
-      where: {id: categ(req.params.catid)}
+      where: {categoryId: categ(req.params.catid)}
     })
     .then(product => {
       db.categories.findOne({
         where: {name: req.params.catid}
       }).then(category => {
-        console.log(product)
+        console.log(product[0].imagen[0].name)
         res.render('category',{
           title: category.name,
           products: product,

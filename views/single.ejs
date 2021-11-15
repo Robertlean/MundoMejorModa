@@ -21,7 +21,7 @@
 
 						<ul class="w3_short">
 							<li><a href="/">Home</a><i>|</i></li>
-							<li><a href="/<%= producto.categoria.name %> "> <%= producto.categoria.name %> </a><i>|</i></li>
+							<li><a href="/category/<%= producto.categoria.name %> "> <%= producto.categoria.name %> </a><i>|</i></li>
 							<li><%= producto.name %> </li>
 						</ul>
 					</div>
@@ -83,8 +83,8 @@
 						<div class="color-quality-right">						
 							<div class="interes">
 								<h5>Color:</h5>
-								<div style="background-color: <%=producto.color%>">
-									<span><%= producto.color %> </span>
+								<div> <%#=producto.colores.hexa%>
+									<span><%= producto.color.abrev %> </span>
 								</div>
 							</div>
 						</div>
@@ -94,8 +94,8 @@
 						<div class="color-quality-right">						
 							<div class="interes">
 								<h5>Color:</h5>
-								<div style="background-color: <%=producto.color%>">
-									<span><%= producto.color %> </span>
+								<div> <%#=producto.color.hexa%>
+									<span><%= producto.color.abrev %> </span>
 								</div>
 							</div>
 						</div>
@@ -127,7 +127,7 @@
 				<div class="responsive_tabs_agileits">
 					<div id="horizontalTab">
 						<ul class="resp-tabs-list">
-							<li>Descripcion</li>
+							<li>Descripción</li>
 						</ul>
 						<div class="resp-tabs-container">
 							<!--/tab_one-->

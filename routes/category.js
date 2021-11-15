@@ -6,4 +6,5 @@ router.get('/', all);
 router.get('/:catid', category)
 
 
+
 module.exports = router;

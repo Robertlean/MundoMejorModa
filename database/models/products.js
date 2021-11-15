@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false,
         },
-        color_id: {
+        colorId: {
             type: dataTypes.INTEGER,
             allowNull: false,
         },
@@ -62,9 +62,9 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "id"
         })
 
-        products.belongsTo(models.colors, {
-            as: "colores",
-            foreignKey: "color_id"
+        products.belongsTo(models.color, {
+            as: "color",
+            foreignKey: "colorId"
         })
 
         products.belongsTo(models.marcs, {

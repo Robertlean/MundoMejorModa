@@ -1,3 +1,5 @@
+const capital = require('./capitalize')
+
 module.exports = {
     insertguion: transform => {
         let marcsName = [];
@@ -14,6 +16,15 @@ module.exports = {
         transform = transform.split("-")
         transform = transform.join(" ")
         return transform
+    },
+    capitalbrand: transform => {
+        let marcsName = []
+
+        transform = transform.split("-")
+        transform.forEach( valor => {
+            marcsName.push(capital(valor))
+        })
+        return marcsName.join(" ")
     }
-    
+
 }

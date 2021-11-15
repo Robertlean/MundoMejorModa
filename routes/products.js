@@ -6,8 +6,6 @@ var { detail, mostraradd, mostraredit, marcas } =require('../controllers/product
 /* GET products pages. */
 router.get('/detail/:product', detail);
 router.get('/agregar', mostraradd);
-
 router.get('/editar/:product', mostraredit)
-// ruta de marcas
-router.get('/marca/:marca', marcas)
+
 module.exports = router;

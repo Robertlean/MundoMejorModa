@@ -11,202 +11,236 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- ---- -->
 
 	<body>
-	<!-- header -->
-	<%-include('./partials/header')%>
-		<!-- ------ -->
+		<!-- header -->
+		<%-include('./partials/header')%>
+			<!-- ------ -->
 
-	<!-- modals/ventanas emergentes -->
-	<%-include('./partials/modals')%>
-		<!-- //modals/ventanas emergentes-->
+			<!-- modals/ventanas emergentes -->
+			<%-include('./partials/modals')%>
+				<!-- //modals/ventanas emergentes-->
 
-	<!-- /banner_bottom_agile_info -->
-	<div class="page-head_agile_info_w3l">
-			<div class="container">
-				<h3>Indumentaria por <span>categoría </span></h3>
-				<!--/w3_short-->
-				<div class="services-breadcrumb">
-					<div class="agile_inner_breadcrumb">
-						<ul class="w3_short">
-							<li><a href="/">Home</a><i>|</i></li>
-						</ul>
+				<!-- /banner_bottom_agile_info -->
+				<div class="page-head_agile_info_w3l">
+					<div class="container">
+						<h3>Indumentaria por <span>categoría </span></h3>
+						<!--/w3_short-->
+						<div class="services-breadcrumb">
+							<div class="agile_inner_breadcrumb">
+								<ul class="w3_short">
+									<li><a href="/">Home</a><i>|</i></li>
+								</ul>
+							</div>
+						</div>
+						<!--//w3_short-->
 					</div>
 				</div>
-		<!--//w3_short-->
-		</div>
-	</div>
 
-  <!-- banner-bootom-w3-agileits -->
-	<div class="banner-bootom-w3-agileits">
-		<div class="container">
-			<!-- filters col de 4-->
-			<%- include('./partials/categ') %> 
-			<div class="col-md-8 products-right">
-				<!-- Tarjeta ejemplo para un producto -->
+				<!-- banner-bootom-w3-agileits -->
+				<div class="banner-bootom-w3-agileits">
+					<div class="container">
+						<!-- filters col de 4-->
+						<%- include('./partials/categ') %>
+							<div class="col-md-8 products-right">
+								<!-- Tarjeta ejemplo para un producto -->
 
-				<!-- Contador para marcsName que contiene los nombres de los productos
+								<!-- Contador para marcsName que contiene los nombres de los productos
 				separado por guiones -->
-				<% let i = 0 %> 
+								<% let i=0 %>
 
-				<% products.forEach(producto => { %>		
-			
-					<div class="col-md-4 product-men">
-						<div class="men-pro-item simpleCart_shelfItem">
-							<a href="/products/detail/<%= marcsName[i] %> ">										
-								<div class="men-thumb-item">						
-									<img src="images/<%= producto.imagen[0].name %>" alt="" class="pro-image-front">
-									<img src="images/<%= producto.imagen[0].name %>" alt="" class="pro-image-back">
-								
-								</div>
-							</a>
-							<div class="item-info-product ">
-								<h4><a href="/products/detail/<%= marcsName[i] %> "><%= capitalize(producto.name) %> </a></h4>
-								<div class="info-product-price">
-									<% if (producto.discount) { %>
-										<span class="item_price">$<%= thousand(producto.price-(producto.price*producto.discount/100)) %> </span>
-										<del>$<%= thousand(producto.price) %> </del>
-									<% }else{ %>
-										<span class="item_price">$<%= thousand(producto.price) %> </span>
-									<%}%>
-								</div>
+									<% products.forEach(producto=> { %>
 
-								<div class="grid-productos">
-									
-									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<a href="/products/detail/<%= marcsName[i] %> "><button class="button">Ver</button></a>
-									</div>
-											
-									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
-										<a href="<%= producto.linkpago %> "><button class="button">Comprar</button></a>
-									</div>
-								</div>						
+										<div class="col-md-4 product-men">
+											<div class="men-pro-item simpleCart_shelfItem">
+												<a href="/products/detail/<%= marcsName[i] %> ">
+													<div class="men-thumb-item">
+														<img src="images/<%= producto.imagen[0].name %>" alt=""
+															class="pro-image-front">
+														<img src="images/<%= producto.imagen[0].name %>" alt=""
+															class="pro-image-back">
+
+													</div>
+													<span class="product-new-top">Talle: <%= producto.talle.abrev %>
+													</span>
+												</a>
+												<div class="item-info-product ">
+													<h4><a href="/products/detail/<%= marcsName[i] %> ">
+															<%= capitalize(producto.name) %>
+														</a></h4>
+													<div class="info-product-price">
+														<% if (producto.discount) { %>
+															<span class="item_price">$<%=
+																	thousand(producto.price-(producto.price*producto.discount/100))
+																	%> </span>
+															<del>$<%= thousand(producto.price) %> </del>
+															<% }else{ %>
+																<span class="item_price">$<%= thousand(producto.price)
+																		%> </span>
+																<%}%>
+													</div>
+
+													<div class="grid-productos">
+
+														<div
+															class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+															<a href="/products/detail/<%= marcsName[i] %> "><button
+																	class="button">Ver</button></a>
+														</div>
+
+														<div
+															class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out button2">
+															<a href="<%= producto.linkpago %> "><button
+																	class="button">Comprar</button></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<% i++ %>
+											<%}); %>
 							</div>
-						</div>
-					</div>
-					<% i++ %> 
-				<%}); %>			
-			</div>		
-		</div>
-	</div>
-<!-- //mens -->
-
-<!--/Servicios de la tienda/pre-footer-->
-<%-include('./partials/pre-footer')%>
-<!--//Servicios de la tienda/pre-footer-->
-
-<!-- footer -->
-<%-include('./partials/footer')%>
-	<!-- //footer -->
-
-<!-- login -->
-			<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content modal-info">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-						</div>
-						<div class="modal-body modal-spa">
-							<div class="login-grids">
-								<div class="login">
-									<div class="login-bottom">
-										<h3>Sign up for free</h3>
-										<form>
-											<div class="sign-up">
-												<h4>Email :</h4>
-												<input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
-											</div>
-											<div class="sign-up">
-												<h4>Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-												
-											</div>
-											<div class="sign-up">
-												<h4>Re-type Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-												
-											</div>
-											<div class="sign-up">
-												<input type="submit" value="REGISTER NOW" >
-											</div>
-											
-										</form>
-									</div>
-									<div class="login-right">
-										<h3>Sign in with your account</h3>
-										<form>
-											<div class="sign-in">
-												<h4>Email :</h4>
-												<input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">	
-											</div>
-											<div class="sign-in">
-												<h4>Password :</h4>
-												<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-												<a href="#">Forgot password?</a>
-											</div>
-											<div class="single-bottom">
-												<input type="checkbox"  id="brand" value="">
-												<label for="brand"><span></span>Remember Me.</label>
-											</div>
-											<div class="sign-in">
-												<input type="submit" value="SIGNIN" >
-											</div>
-										</form>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
-							</div>
-						</div>
 					</div>
 				</div>
-			</div>
-<!-- //login -->
-<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+				<!-- //mens -->
 
-<!-- js -->
-<%-include('./partials/scripts')%>
-<script src="/javascripts/responsiveslides.min.js"></script>
-				<script>
-						// You can also use "$(window).load(function() {"
-						$(function () {
-						 // Slideshow 4
-						$("#slider3").responsiveSlides({
-							auto: true,
-							pager: true,
-							nav: false,
-							speed: 500,
-							namespace: "callbacks",
-							before: function () {
-						$('.events').append("<li>before event fired.</li>");
-						},
-						after: function () {
-							$('.events').append("<li>after event fired.</li>");
-							}
-							});
-						});
-				</script>
+				<!--/Servicios de la tienda/pre-footer-->
+				<%-include('./partials/pre-footer')%>
+					<!--//Servicios de la tienda/pre-footer-->
+
+					<!-- footer -->
+					<%-include('./partials/footer')%>
+						<!-- //footer -->
+
+						<!-- login -->
+						<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
+							aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content modal-info">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									</div>
+									<div class="modal-body modal-spa">
+										<div class="login-grids">
+											<div class="login">
+												<div class="login-bottom">
+													<h3>Sign up for free</h3>
+													<form>
+														<div class="sign-up">
+															<h4>Email :</h4>
+															<input type="text" value="Type here"
+																onfocus="this.value = '';"
+																onblur="if (this.value == '') {this.value = 'Type here';}"
+																required="">
+														</div>
+														<div class="sign-up">
+															<h4>Password :</h4>
+															<input type="password" value="Password"
+																onfocus="this.value = '';"
+																onblur="if (this.value == '') {this.value = 'Password';}"
+																required="">
+
+														</div>
+														<div class="sign-up">
+															<h4>Re-type Password :</h4>
+															<input type="password" value="Password"
+																onfocus="this.value = '';"
+																onblur="if (this.value == '') {this.value = 'Password';}"
+																required="">
+
+														</div>
+														<div class="sign-up">
+															<input type="submit" value="REGISTER NOW">
+														</div>
+
+													</form>
+												</div>
+												<div class="login-right">
+													<h3>Sign in with your account</h3>
+													<form>
+														<div class="sign-in">
+															<h4>Email :</h4>
+															<input type="text" value="Type here"
+																onfocus="this.value = '';"
+																onblur="if (this.value == '') {this.value = 'Type here';}"
+																required="">
+														</div>
+														<div class="sign-in">
+															<h4>Password :</h4>
+															<input type="password" value="Password"
+																onfocus="this.value = '';"
+																onblur="if (this.value == '') {this.value = 'Password';}"
+																required="">
+															<a href="#">Forgot password?</a>
+														</div>
+														<div class="single-bottom">
+															<input type="checkbox" id="brand" value="">
+															<label for="brand"><span></span>Remember Me.</label>
+														</div>
+														<div class="sign-in">
+															<input type="submit" value="SIGNIN">
+														</div>
+													</form>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+											<p>By logging in you agree to our <a href="#">Terms and Conditions</a> and
+												<a href="#">Privacy Policy</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //login -->
+						<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover"
+								style="opacity: 1;"> </span></a>
+
+						<!-- js -->
+						<%-include('./partials/scripts')%>
+							<script src="/javascripts/responsiveslides.min.js"></script>
+							<script>
+								// You can also use "$(window).load(function() {"
+								$(function () {
+									// Slideshow 4
+									$("#slider3").responsiveSlides({
+										auto: true,
+										pager: true,
+										nav: false,
+										speed: 500,
+										namespace: "callbacks",
+										before: function () {
+											$('.events').append("<li>before event fired.</li>");
+										},
+										after: function () {
+											$('.events').append("<li>after event fired.</li>");
+										}
+									});
+								});
+							</script>
 
 
 
-<script src="/javascripts/modernizr.custom.js"></script>
+							<script src="/javascripts/modernizr.custom.js"></script>
 
-	<!---->
+							<!---->
 							<script type='text/javascript'>//<![CDATA[ 
-							$(window).load(function(){
-							 $( "#slider-range" ).slider({
+								$(window).load(function () {
+									$("#slider-range").slider({
 										range: true,
 										min: 0,
 										max: 9000,
-										values: [ 1000, 7000 ],
-										slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+										values: [1000, 7000],
+										slide: function (event, ui) {
+											$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
 										}
-							 });
-							$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+									});
+									$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
 
-							});//]]>  
+								});//]]>  
 
 							</script>
-						<script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
-					 <!---->
+							<script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
+							<!---->
 
-</body>
+	</body>
+
 </html>

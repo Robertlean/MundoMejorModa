@@ -15,6 +15,7 @@ var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var adminRouter = require('./routes/admin');
 var categoryRouter = require('./routes/category')
+var brandRouter = require('./routes/brand')
 
 var app = express();
 
@@ -33,7 +34,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/admin', adminRouter);
-app.use('/category', categoryRouter)
+app.use('/category', categoryRouter);
+app.use('/brand', brandRouter)
 
 // manejo de sesiones
 app.use(session({secret: "Mundo Mejor Moda"}));
